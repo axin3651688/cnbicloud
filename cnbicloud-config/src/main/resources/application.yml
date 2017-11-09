@@ -1,0 +1,20 @@
+server: #此配制管理做为一个微服务在enreka注册中心进行注册 
+  port: 7101
+spring: 
+  application:
+    name: cnbicloud-config
+  cloud:  # 进行SpringCloud的相关配置
+    config: # 进行SpringCloudConfig的相关配置
+      server: # 设置服务的连接地址
+        git:  # 本次使用的是GIT作为仓库的管理，所以需要设置GIT的连接地址
+          uri: git@github.com:axin3651688/cnbiconfig.git    # 为公共仓库信息，如果某些信息找不到了就使用它
+          search-paths:
+          - cnbicloud-*
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://edmin:mldnjava@eureka-7001.com:7001/eureka
+  instance:
+    prefer-ip-address: true     # 在地址栏上使用IP地址进行显示
+    instance-id: config-7101.com

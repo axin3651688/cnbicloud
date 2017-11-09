@@ -1,0 +1,5 @@
+com\cnbicloud\vo\T_User.class
+com\cnbicloud\vo\Dept.class
+com\cnbicloud\vo\T_Company.class
+com\cnbicloud\vo\base\BaseVo.class
+com\cnbicloud\vo\T_Department.class

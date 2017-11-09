@@ -1,0 +1,9 @@
+#spring: 
+  #application: 
+    #name: cnbicloud-provider-dept  # 编写应用的名称
+#server:
+  #port: 8888
+#eureka: 
+#  client:
+#    service-url:
+#      defaultZone: http://eureka-application.com:7001/eureka

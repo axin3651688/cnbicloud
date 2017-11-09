@@ -1,0 +1,5 @@
+com\cnbicloud\DeptApplication.class
+com\cnbicloud\service\IDeptService.class
+com\cnbicloud\dao\IDeptDAO.class
+com\cnbicloud\rest\DetpRestController.class
+com\cnbicloud\service\impl\DeptServiceImpl.class
