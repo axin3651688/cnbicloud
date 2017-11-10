@@ -14,4 +14,7 @@ spring:
 eureka: # 一定要编写一个eureka的地址
   client: # 目的是为了让客户端可以通过eureka找到SpringCloudConfig微服务
     service-url:
-      defaultZone: http://edmin:mldnjava@eureka118-7001.com/eureka,http://edmin:mldnjava@eureka108-7001.com:7001/eureka
+      defaultZone: http://edmin:mldnjava@eureka118-7001.com:7001/eureka,http://edmin:mldnjava@eureka108-7001.com:7001/eureka
+  instance:
+    prefer-ip-address: true     # 在地址栏上使用IP地址进行显示
+    instance-id: dept118-8001.com

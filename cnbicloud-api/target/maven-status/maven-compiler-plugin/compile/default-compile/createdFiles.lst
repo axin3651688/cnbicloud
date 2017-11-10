@@ -1,3 +1,4 @@
+com\cnbicloud\tools\CnbiConstants.class
 com\cnbicloud\vo\T_User.class
 com\cnbicloud\vo\Dept.class
 com\cnbicloud\vo\T_Company.class
