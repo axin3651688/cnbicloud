@@ -1,9 +1,7 @@
-#spring: 
-  #application: 
-    #name: cnbicloud-provider-dept  # 编写应用的名称
-#server:
-  #port: 8888
-#eureka: 
-#  client:
-#    service-url:
-#      defaultZone: http://eureka-application.com:7001/eureka
+#eureka: # 一定要编写一个eureka的地址
+  #client: # 目的是为了让客户端可以通过eureka找到SpringCloudConfig微服务
+    #service-url:
+      #defaultZone: http://edmin:mldnjava@eureka118-7001.com/eureka,http://edmin:mldnjava@eureka108-7001.com:7001/eureka
+spring:
+  application:
+    name: cnbicloud-provider-dept

@@ -14,7 +14,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://edmin:mldnjava@cnbigjx.eicp.net:36108/eureka
+      defaultZone: http://edmin:mldnjava@eureka118-7001.com/eureka,http://edmin:mldnjava@eureka108-7001.com:7001/eureka
   instance:
     prefer-ip-address: true     # 在地址栏上使用IP地址进行显示
-    instance-id: config-7101.com
+    instance-id: config118-7101.com
