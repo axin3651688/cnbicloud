@@ -11,13 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cnbicloud.service.IDeptService;
 import com.cnbicloud.vo.Dept;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
 /**
  * 
-* @ClassName: DetpRestController  
-* @Description: TODO(部门微服务api提供)  
-* @author 龚佳新 
-* @date 2017年10月31日  
-*
+ * @ClassName: DetpRestController
+ * @Description: TODO(部门微服务api提供)
+ * @author 龚佳新
+ * @date 2017年10月31日
+ *
  */
 @RestController
 public class DetpRestController {
@@ -25,6 +27,15 @@ public class DetpRestController {
 	@Resource
 	private IDeptService deptService;
 
+	public Object getFallback(@PathVariable("id") long id) { // 此时方法的参数 与get()一致
+		Dept vo = new Dept();
+		vo.setDeptno(999999L);
+		vo.setDname("【ERROR】cnbicloud-Dept-Hystrix"); // 错误的提示
+		vo.setLoc("DEPT-Provider");
+		return vo;
+	}
+
+	@HystrixCommand(fallbackMethod = "getFallback") // 如果当前调用的get()方法出现了错误，则执行fallback
 	@RequestMapping("/dept/sessionId")
 	public Object id(HttpServletRequest request) {
 		return request.getSession().getId();

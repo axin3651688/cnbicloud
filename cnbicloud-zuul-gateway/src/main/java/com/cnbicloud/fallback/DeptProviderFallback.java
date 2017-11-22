@@ -14,7 +14,7 @@ public class DeptProviderFallback implements ZuulFallbackProvider {
 
 	@Override
 	public String getRoute() {
-		return "microcloud-provider-dept";	// 设置好处理的失败路由
+		return "cnbicloud-provider-dept";	// 设置好处理的失败路由
 	}
 
 	@Override

@@ -7,14 +7,19 @@ import com.cnbicloud.tools.CnbiConstants;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
-public class AuthorizedRequestFilter extends ZuulFilter {	// 进行授权访问处理
+/**
+ * @ClassName: AuthorizedRequestFilter
+ * @Description: TODO(进行授权访问处理)
+ * @author 龚佳新
+ * @date 2017年11月14日
+ */
+public class AuthorizedRequestFilter extends ZuulFilter { // 进行授权访问处理
 
 	@Override
-	public Object run() {	// 表示具体的过滤执行操作
-		RequestContext currentContext = RequestContext.getCurrentContext() ; // 获取当前请求的上下文
-		String auth = CnbiConstants.PROVIDER_USER+":"+CnbiConstants.PROVIDER_PWD; // 认证的原始信息
-		byte[] encodedAuth = Base64.getEncoder()
-				.encode(auth.getBytes(Charset.forName("US-ASCII"))); // 进行一个加密的处理
+	public Object run() { // 表示具体的过滤执行操作
+		RequestContext currentContext = RequestContext.getCurrentContext(); // 获取当前请求的上下文
+		String auth = CnbiConstants.PROVIDER_USER + ":" + CnbiConstants.PROVIDER_PWD; // 认证的原始信息
+		byte[] encodedAuth = Base64.getEncoder().encode(auth.getBytes(Charset.forName("US-ASCII"))); // 进行一个加密的处理
 		// 在进行授权的头信息内容配置的时候加密的信息一定要与“Basic”之间有一个空格
 		String authHeader = "Basic " + new String(encodedAuth);
 		currentContext.addZuulRequestHeader("Authorization", authHeader);
@@ -22,13 +27,13 @@ public class AuthorizedRequestFilter extends ZuulFilter {	// 进行授权访问�
 	}
 
 	@Override
-	public boolean shouldFilter() {	// 该Filter是否要执行
-		return true ;
+	public boolean shouldFilter() { // 该Filter是否要执行
+		return true;
 	}
 
 	@Override
 	public int filterOrder() {
-		return 0;	// 设置优先级，数字越大优先级越低
+		return 0; // 设置优先级，数字越大优先级越低
 	}
 
 	@Override
