@@ -7,6 +7,8 @@ logging:
     com.cnbicloud.service: DEBUG
 
 feign:
+  hystrix: 
+    enabled: true
   compression:
     request:
       mime-types:       # 可以被压缩的类型

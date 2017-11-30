@@ -38,11 +38,19 @@ public class MinaSocketConfig {
 	@Resource
 	private Mina mina;
 		
-
+    
+	/**
+	 * 
+	* @Title: tcpSocket  
+	* @Description: TODO(配制Mina启动类，发送数据协议为：00 00 00 0B AC ED 00 05 74 00 04 31 31 31 32==>[前4位为数据长度，后7位为根据数据长度生成的协议标识符，从第12位开始到结尾就是发送的数据内容了])  
+	* @param @return    参数  
+	* @return IoAcceptor    返回类型  
+	* @throws
+	 */
 	@Bean(name = "minaSocket")
 	public IoAcceptor tcpSocket(){
 		if(mina.getStart() == 0){
-			return null;
+			return null;//由于测试作用，不启动的情况 
 		}
 		long a = System.currentTimeMillis();
 	    IoBuffer.setUseDirectBuffer(false);//heap buffer
@@ -94,10 +102,10 @@ public class MinaSocketConfig {
 		acceptor.getSessionConfig().setIdleTime(IdleStatus.BOTH_IDLE, mina.getSessionIdleTime());
 		try{
 			acceptor.bind(inetAddress);
-			logger.info("Ic9平台socket服务器在TCP_Android端口【"+mina.getPort()+"】上成功启动，历时【" + (System.currentTimeMillis() - a) + "】毫秒！");
+			logger.info("Ic9平台socket服务器在TCP端口【"+mina.getPort()+"】上成功启动，历时【" + (System.currentTimeMillis() - a) + "】毫秒！");
 		}catch(Exception e){
 			e.printStackTrace();
-			logger.error("socket服务器启动失败！", e);
+			logger.error("socket服务在TCP端口【"+mina.getPort()+"】上启动失败！", e);
 		}
 		return acceptor;
 	}

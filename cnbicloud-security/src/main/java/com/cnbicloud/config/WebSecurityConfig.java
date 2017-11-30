@@ -25,14 +25,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Resource
 	public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		InMemoryUserDetailsManagerConfigurer<AuthenticationManagerBuilder> bulid = auth.inMemoryAuthentication();
+		//UserDetailsService userDetails = auth.getDefaultUserDetailsService();
+		//userDetails.loadUserByUsername(arg0)
 		for (Entry<String,String> entry : CnbiConstants.getUserMap().entrySet()) {
 			bulid.withUser(entry.getKey()).password(entry.getValue()).roles("USER", "ADMIN");
 		}
-		
+		//SessionIdGenerator
 		//auth.inMemoryAuthentication().withUser(CnbiConstants.PROVIDER_SERVICE_USER).password(CnbiConstants.PROVIDER_SERVICE_USER).roles("USER")
 		//.and().withUser("admin").password("hello").roles("USER", "ADMIN");
 	}
-
+    /**
+     * 定义哪些URL需要被保护、哪些不需要被保护
+     */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// 表示所有的访问都必须进行认证处理后才可以正常进行

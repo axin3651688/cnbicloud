@@ -21,6 +21,7 @@ public class CnbiConstants {
 	private  static Map<String,String> USER_MAP = new HashMap<String,String>();
 	
 	static {
+		
 		USER_MAP.put(PROVIDER_USER,PROVIDER_PWD);
 		USER_MAP.put("admin", PROVIDER_PWD);
 		USER_MAP.put("cnbigjx", PROVIDER_PWD);

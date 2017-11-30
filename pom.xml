@@ -123,7 +123,6 @@
 		<module>cnbicloud-api</module>
 		<module>cnbicloud-service</module>
 		<module>cnbicloud-security</module>
-		<module>cnbicloud-apps</module>
 		<module>cnbicloud-provides</module>
 		<module>cnbicloud-server</module>
 		<module>cnbicloud-consumers</module>

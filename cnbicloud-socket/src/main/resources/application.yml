@@ -15,7 +15,7 @@
 # ===================================================================    
 spring:
     application:
-        name: IC9
+        name: socketService
 mina: 
     port: 8889 
     read-buffer-size: 209715209

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cnbicloud.config.SecurityUtils;
 import com.cnbicloud.service.IDeptService;
 import com.cnbicloud.vo.Dept;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -54,6 +55,11 @@ public class DetpRestController {
 	@RequestMapping(value = "/dept/list", method = RequestMethod.GET)
 	public Object list() {
 		return this.deptService.list();
+	}
+	@RequestMapping(value = "/getCurrentUser", method = RequestMethod.GET)
+	public String getCurrentUser() {
+		String username = SecurityUtils.getCurrentUserLogin();
+		return username;
 	}
 
 }
