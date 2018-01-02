@@ -1,15 +1,15 @@
 ## 经邦云平台互联网微服务架构所包含的模块有：
 	+ cnbicloud
-       - cnbicloud-server                 服务注册中心(高可用HA集群)
-       - cnbicloud-config                 服务配制中心(高可用HA集群)
-	   - cnbicloud-api                    公共api模块-------
-	   - cnbicloud-service                公共服务模块-------
-       - cnbicloud-fastdfs                分布式文件系统模块(负载均衡集群)
-	   - cnbicloud-security               安全认证模块(高可用HA集群)
-       - cnbicloud-zuul-gateway           路由网关代理模块(高可用HA集群) 
-       - cnbicloud-websocket              Web端双向通讯模块----------
-       - cnbicloud-socket                 客户端双向通讯模块---------
-	   + cnbicloud-services               服务提供模块池(负载均衡集群)
+       - cnbicloud-server                 注册中心服务(高可用HA集群)
+       - cnbicloud-config                 配制中心服务(高可用HA集群)
+	   - cnbicloud-api                    公共api服务-------
+	   - cnbicloud-service                公共服务-------
+       - cnbicloud-fastdfs                分布式文件系统服务(负载均衡集群)
+	   - cnbicloud-security               安全认证服务(高可用HA集群)
+       - cnbicloud-zuul-gateway           路由网关代理服务(高可用HA集群) 
+       - cnbicloud-websocket              Web端消息服务
+       - cnbicloud-socket                 客户端消息服务（单聊，群聊，应用）
+	   + cnbicloud-services               业务中心服务模块(负载均衡集群)
 	      - cnbicloud-services-license       牌照（个人，企业。【开源，商业】）
           - cnbicloud-services-datadict      数据字典
 	      - cnbicloud-services-company       公司
@@ -19,25 +19,27 @@
 	      - cnbicloud-services-online        在线(用户,设备，企业等)
 	      - cnbicloud-services-log           日志
 	      - cnbicloud-services-role          角色 
-	      - cnbicloud-services-chatmsg       单聊消息
-	      - cnbicloud-services-groupmsg      群聊消息
-	      - cnbicloud-services-appmsg        应用消息
           - cnbicloud-services-msgbus        消息集成总线          
           - cnbicloud-services-voice         集成讯飞语音
-          - cnbicloud-services-datas         数据
-	   + cnbicloud-apps                  服务消费应用模块池(负载均衡集群)
+          - cnbicloud-services-datas         数据转换（客户data->经邦data）
+	   + cnbicloud-apps                  消费应用服务模块池(负载均衡集群)
           - cnbicloud-apps-dashboard         仪表盘
           - cnbicloud-apps-indicator         重点指标
           - cnbicloud-apps-datasource        数据源
           - cnbicloud-apps-table             报表
           - cnbicloud-apps-report            报告
-          - cnbicloud-apps-design            设计器（图，表,文字）
+          - cnbicloud-apps-design            设计器（图，表,文字等自定义分析）
           - cnbicloud-apps-disk              云盘或网盘
           - cnbicloud-apps-machine           消息总线及机器人个性服务
           - cnbicloud-apps-task              任务
           - cnbicloud-apps-calendar          日程管理
           - cnbicloud-apps-crm               客户关系
           - cnbicloud-apps-mgt               控制台或后台管理
+          - cnbicloud-apps-turbine           服务调用追踪监控（运维的应用）
+
+
+## Web端，Android端，IOS端可并行开发。。。
+ 
 
 ## 高可用性(High Availability),简称HA：
 
