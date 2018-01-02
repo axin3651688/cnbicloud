@@ -1,6 +1,5 @@
 package com.cnbicloud.config;
 import java.net.InetSocketAddress;
-
 import org.apache.log4j.Logger;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
@@ -13,6 +12,8 @@ import org.apache.mina.core.session.IoSession;
  *  mina API:https://www.ibm.com/developerworks/cn/java/j-lo-mina2/index.html
  */
 public class MinaSocketHandler extends IoHandlerAdapter {
+	
+	private static boolean SHAKE  =  false;
 
 
 
@@ -30,7 +31,19 @@ public class MinaSocketHandler extends IoHandlerAdapter {
 	}
 
 	@Override
-	public void messageReceived(IoSession session, Object message) {}
+	public void messageReceived(IoSession session, Object message) {
+		String msg = String.valueOf(message);
+		if(msg.length() > 6) {
+			Object shake = session.getAttribute(SHAKE);
+			if(null == shake) {
+				MinaSocketHandshake.detectPlatform(session,null);
+				session.setAttribute(SHAKE, 1);//表示已经握手的标识
+			}else {
+				
+			}
+		}
+		//detectPlatform
+	}
 	@Override
 	public void messageSent(IoSession session, Object message) throws Exception {}
 

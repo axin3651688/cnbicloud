@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: cnbicloud-provider-user
+  cloud:
+    config:
+      name: cnbicloud-provider-apps    # 定义要读取的资源文件的名称
+      profile: dev      # 定义profile的 名称
+      label: master     # 定义配置文件所在的分支
+      #uri: http://config118-7101.com:7101  # SpringCloudConfig的服务地址
+      username: mldnjava  # 连接的用户名
+      password: hello   # 连接的密码
+      discovery:
+        enabled: true   # 通过配置中心加载配置文件
+        service-id: CNBICLOUD-CONFIG   # 在eureka之中注册的服务ID cnbicloud-config
+      
+eureka: # 一定要编写一个eureka的地址
+  client: # 目的是为了让客户端可以通过eureka找到SpringCloudConfig微服务
+    service-url:
+      defaultZone:  ${EUREKA_HOME}
+  instance:
+    prefer-ip-address: true     # 在地址栏上使用IP地址进行显示
+    #instance-id: dept118-8001.com
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}  
+    

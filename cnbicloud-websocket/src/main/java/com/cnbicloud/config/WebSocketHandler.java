@@ -27,7 +27,10 @@ public class WebSocketHandler extends AbstractWebSocketHandler {
 	 */
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-		logger.info("此连接关闭的动作");
+		logger.info("此连接关闭的动作");//SessionConnectEvent
+		//WebSocketMessageBrokerStats
+		//ChannelSecurityInterceptor
+	    //AffirmativeBased
 		super.afterConnectionClosed(session, status);
 	}
 

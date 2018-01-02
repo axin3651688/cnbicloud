@@ -6,13 +6,14 @@
 	<artifactId>cnbicloud</artifactId>
 	<version>0.0.1</version>
 	<packaging>pom</packaging>
-
 	<name>cnbicloud</name>
 	<url>http://maven.apache.org</url>
-
 	<properties>
 		<jdk.version>1.8</jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<mina.version>2.0.7</mina.version>
+		<springboot.version>1.5.4.RELEASE</springboot.version>
+		<mysql.version>5.1.39</mysql.version> <!-- 5.0.4 -->
 	</properties>
 
 	<dependencies>
@@ -28,17 +29,17 @@
 			<dependency>
 				<groupId>com.cnbicloud</groupId>
 				<artifactId>cnbicloud-api</artifactId>
-				<version>0.0.1</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.cnbicloud</groupId>
 				<artifactId>cnbicloud-service</artifactId>
-				<version>0.0.1</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.cnbicloud</groupId>
 				<artifactId>cnbicloud-security</artifactId>
-				<version>0.0.1</version>
+				<version>${project.version}</version>
 			</dependency>
 			<dependency>	<!-- 进行SpringCloud依赖包的导入处理 -->
 				<groupId>org.springframework.cloud</groupId>
@@ -50,36 +51,65 @@
 			<dependency>	<!-- SpringCloud离不开SpringBoot，所以必须要配置此依赖包 -->
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-dependencies</artifactId>
-				<version>1.5.4.RELEASE</version>
+				<version>${springboot.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
-				<version>5.0.4</version>
+				<version>${mysql.version}</version>
 			</dependency>
+			<!-- 目前最好最快的连接池 -->
+			<dependency>
+				<groupId>com.zaxxer</groupId>
+				<artifactId>HikariCP</artifactId>
+				<version>2.7.3</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>tools</artifactId>
+						<groupId>com.sun</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- 目前国产的最好最快的连接池 -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>druid</artifactId>
 				<version>1.0.31</version>
 			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+				<version>${springboot.version}</version>
+			</dependency>
+
+
 			<dependency>
 				<groupId>org.mybatis.spring.boot</groupId>
 				<artifactId>mybatis-spring-boot-starter</artifactId>
 				<version>1.3.0</version>
 			</dependency>
 
+
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>1</version>
+			</dependency>
+
+
 			<dependency>
 				<groupId>org.apache.mina</groupId>
 				<artifactId>mina-integration-beans</artifactId>
-				<version>2.0.7</version>
+				<version>${mina.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>org.apache.mina</groupId>
 				<artifactId>mina-core</artifactId>
-				<version>2.0.7</version>
+				<version>${mina.version}</version>
 				<type>bundle</type>
 				<scope>compile</scope>
 			</dependency>
@@ -123,12 +153,12 @@
 		<module>cnbicloud-api</module>
 		<module>cnbicloud-service</module>
 		<module>cnbicloud-security</module>
-		<module>cnbicloud-provides</module>
 		<module>cnbicloud-server</module>
-		<module>cnbicloud-consumers</module>
 		<module>cnbicloud-zuul-gateway</module>
 		<module>cnbicloud-config</module>
 		<module>cnbicloud-websocket</module>
 		<module>cnbicloud-socket</module>
+		<module>cnbicloud-services</module>
+		<module>cnbicloud-apps</module>
 	</modules>
 </project>

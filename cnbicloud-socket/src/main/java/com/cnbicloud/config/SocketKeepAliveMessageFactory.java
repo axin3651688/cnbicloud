@@ -4,10 +4,11 @@ import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.keepalive.KeepAliveMessageFactory;
 /**
  * 
- * @desc 心跳过滤器
- * @author 龚佳新
- * @time:2016年12月11日 下午12:21:49
- *
+* @ClassName: SocketKeepAliveMessageFactory  
+* @Description: TODO(跳过滤器)  
+* @author 龚佳新 
+* @date 2017年12月18日  
+*
  */
 public class SocketKeepAliveMessageFactory implements KeepAliveMessageFactory {
 

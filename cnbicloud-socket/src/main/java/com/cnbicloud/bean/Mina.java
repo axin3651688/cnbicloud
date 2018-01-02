@@ -5,7 +5,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.stereotype.Component;
 
 /**
- * 
 * @ClassName: Mina  
 * @Description: TODO(Mina服务器配制类)  
 * @author 龚佳新 
@@ -31,6 +30,15 @@ public class Mina {
 	private int heartTimeout = 30;// 心跳超时时间，默认30s
 
 	private int start = 0;
+	
+	private int maxThreads = 100;
+	
+	
+	private int processorCount = 8;
+	
+	private int socketIoPool = 512;
+	
+	
 
 	public int getPort() {
 		return port;
@@ -95,5 +103,31 @@ public class Mina {
 	public void setReceiveBufferSize(int receiveBufferSize) {
 		this.receiveBufferSize = receiveBufferSize;
 	}
+
+	public int getMaxThreads() {
+		return maxThreads;
+	}
+
+	public void setMaxThreads(int maxThreads) {
+		this.maxThreads = maxThreads;
+	}
+
+	public int getProcessorCount() {
+		return processorCount;
+	}
+
+	public void setProcessorCount(int processorCount) {
+		this.processorCount = processorCount;
+	}
+
+	public int getSocketIoPool() {
+		return socketIoPool;
+	}
+
+	public void setSocketIoPool(int socketIoPool) {
+		this.socketIoPool = socketIoPool;
+	}
+	
+	
 
 }

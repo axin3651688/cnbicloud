@@ -24,11 +24,14 @@ public class WebSocketHandshake extends HttpSessionHandshakeInterceptor {
 		logger.info("afterHandshake");
 		super.afterHandshake(request, response, wsHandler, ex);
 	}
-
+	//@EventListener
 	@Override
-	public boolean beforeHandshake(ServerHttpRequest arg0, ServerHttpResponse arg1, WebSocketHandler arg2, Map<String, Object> arg3) throws Exception {
-		// TODO Auto-generated method stub
-		return super.beforeHandshake(arg0, arg1, arg2, arg3);
+	public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Map<String, Object> params) throws Exception {
+		//TODO Auto-generated method stub
+		//WebSocketTraceChannelInterceptorAutoConfiguration
+		//MessageMappingEndpoint
+		//WebSocketEndpoint
+		return super.beforeHandshake(request, response, wsHandler, params);
 	}
 
 }

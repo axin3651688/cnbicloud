@@ -9,30 +9,35 @@
        - cnbicloud-zuul-gateway           路由网关代理模块(高可用HA集群) 
        - cnbicloud-websocket              Web端双向通讯模块----------
        - cnbicloud-socket                 客户端双向通讯模块---------
-	   + cnbicloud-provides               服务提供模块(负载均衡集群)
-	      - cnbicloud-provides-license       牌照（个人，企业。【开源，商业】）
-          - cnbicloud-provides-datadict      数据字典
-	      - cnbicloud-provides-company       公司
-	      - cnbicloud-provides-dept          部门
-	      - cnbicloud-provides-user          用户
-          - cnbicloud-provides-auth          授权（公司，部门，角色，应用）
-	      - cnbicloud-provides-online        在线(用户,设备，企业等)
-	      - cnbicloud-provides-log           日志
-	      - cnbicloud-provides-role          角色 
-	      - cnbicloud-provides-chatmsg       单聊消息
-	      - cnbicloud-provides-groupmsg      群聊消息
-	      - cnbicloud-provides-appmsg        应用消息
-          - cnbicloud-provides-msgbus        消息集成总线          
-          - cnbicloud-provides-voice         集成讯飞语音
-          - cnbicloud-provides-datas         数据
-	   + cnbicloud-consumers              服务消费应用模块(负载均衡集群)
-          - cnbicloud-consumers-dashboard    仪表盘
-          - cnbicloud-consumers-indicator    重点指标
-          - cnbicloud-consumers-datasource   数据源
-          - cnbicloud-consumers-table        报表
-          - cnbicloud-consumers-report       报告
-          - cnbicloud-consumers-design       设计器（图，表,文字）
-          - cnbicloud-consumers-machine      消息总线及机器人个性服务
+	   + cnbicloud-services               服务提供模块池(负载均衡集群)
+	      - cnbicloud-services-license       牌照（个人，企业。【开源，商业】）
+          - cnbicloud-services-datadict      数据字典
+	      - cnbicloud-services-company       公司
+	      - cnbicloud-services-dept          部门
+	      - cnbicloud-services-user          用户
+          - cnbicloud-services-auth          授权（公司，部门，角色，应用）
+	      - cnbicloud-services-online        在线(用户,设备，企业等)
+	      - cnbicloud-services-log           日志
+	      - cnbicloud-services-role          角色 
+	      - cnbicloud-services-chatmsg       单聊消息
+	      - cnbicloud-services-groupmsg      群聊消息
+	      - cnbicloud-services-appmsg        应用消息
+          - cnbicloud-services-msgbus        消息集成总线          
+          - cnbicloud-services-voice         集成讯飞语音
+          - cnbicloud-services-datas         数据
+	   + cnbicloud-apps                  服务消费应用模块池(负载均衡集群)
+          - cnbicloud-apps-dashboard         仪表盘
+          - cnbicloud-apps-indicator         重点指标
+          - cnbicloud-apps-datasource        数据源
+          - cnbicloud-apps-table             报表
+          - cnbicloud-apps-report            报告
+          - cnbicloud-apps-design            设计器（图，表,文字）
+          - cnbicloud-apps-disk              云盘或网盘
+          - cnbicloud-apps-machine           消息总线及机器人个性服务
+          - cnbicloud-apps-task              任务
+          - cnbicloud-apps-calendar          日程管理
+          - cnbicloud-apps-crm               客户关系
+          - cnbicloud-apps-mgt               控制台或后台管理
 
 ## 高可用性(High Availability),简称HA：
 
@@ -47,4 +52,96 @@
     3. 集群工作方式（多服务器互备方式）
     工作原理：多台主机一起工作，各自运行一个或几个服务，各为服务定义一个或多个备用主机，当某个主机故障时，运行在其上的服务就可以被其它主机接管。
 
-	   
+	
+## 功能权限
+
+ 功能权限列表有以下N种：
+     select：查看，
+     update：修改，
+     insert：新增，
+     delete：删除，
+     upload：上传，
+     download：下载，
+     export:导出
+
+系统资源（菜单）权限列表有以下N种：
+     
+     组织机构（团队）：company
+     部门：dept
+     区域：region
+     用户：user
+     角色：role
+     权限：permission
+     应用：apps（dashboard,report,table,indicator,crm,task......）
+     牌照：license
+     数据字典：dict
+     日志：log
+
+功能与菜单权限组合为：
+
+     insert:company 添加团队
+     delete:company 删除团队
+     update:company 更改团队
+     select:company 查看团队
+     .......................
+
+牌照权限列表有以下4种：
+
+     个人（开源），团队（开源），个人（商业），团队（商业）
+
+内置角色列表：
+
+     + 默认
+       - 所有者            super
+       - 管理员            admin
+       - 部门主管          dept_mgt
+       - 成员              member
+     + 总监
+       - 研发总监          dev_mgt
+       - 市场总监          mark_mgt
+       - 人力资源总监      hrm_mgt
+       - 销售总监          sell_mgt
+     + 职务
+       - 财务
+       - 客服
+       - 出纳
+       - 行政
+       - HR
+       - 采购
+       - 人事
+     + 区域
+       - 南区
+       - 华中区
+       - 北区
+       - 西区
+       - 东区
+
+## 行级数据授权 ： 
+    角色拥有N多公司，N多部门的权限
+    角色拥有N多应用里的N多行级数据的权限
+
+## [基于表达式的权限控制 ]( http://elim.iteye.com/blog/2247073 )  
+    
+    表达式          描述
+    hasRole([role])             当前用户是否拥有指定角色。
+    hasAnyRole([role1,role2])  多个角色是一个以逗号进行分隔的字符串。如果当前用户拥有指定角色中的任意一个则返回true。
+    hasAuthority([auth])          等同于hasRole
+    hasAnyAuthority([auth1,auth2])  等同于hasAnyRole
+    Principle   代表当前用户的principle对象
+    authentication   直接从SecurityContext获取的当前Authentication对象
+    permitAll   总是返回true，表示允许所有的
+    denyAll   总是返回false，表示拒绝所有的
+    isAnonymous()   当前用户是否是一个匿名用户
+    isRememberMe()  表示当前用户是否是通过Remember-Me自动登录的
+    isAuthenticated()表示当前用户是否已经登录认证成功了。
+    isFullyAuthenticated()如果当前用户既不是一个匿名用户，同时又不是通过Remember-Me自动登录的，则返回true。
+
+## 数据库主键id使用自动增长的坏处
+    1. 程序后台添加测试
+    2. 旧数据导入
+    3. 数据库迁移
+    4. 缓存 (如，两个库中id都为2时，缓存的时候会覆盖)
+
+
+
+

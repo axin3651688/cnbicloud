@@ -1,8 +1,18 @@
 package com.cnbicloud.vo.per;
-
-import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+import com.cnbicloud.vo.abs.AbstractUser;
+
+import javax.persistence.JoinColumn;
 /**
  * 
 * @ClassName: T_User  
@@ -11,25 +21,30 @@ import java.util.Date;
 * @date 2017年10月30日  
 *
  */
-public class T_User implements Serializable {
+@Entity
+@Table(name = "sys_user")
+public class T_User extends AbstractUser {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Long id;
+	
 	
 	/**
 	 * 登录名称
 	 */
+	@Column(length = 32)
 	private String username;
 	
 	/**
 	 * 登录密码
 	 */
+	@Column(length = 36)
 	private String password;
 	
 	/**
 	 * 真实姓名
 	 */
+	@Column(length = 28,unique = true)
 	private String trueName;
 	
 	/**
@@ -40,27 +55,43 @@ public class T_User implements Serializable {
 	/**
 	 * 邮箱
 	 */
+	@Column(length = 32,unique = true)
 	private String email;
 		
-	/**
-	 * 是否禁用或是否锁住
-	 */
-	private Integer enable;
 	
-	/**
-	 * 头像或图标
-	 */
-	private String avatar;
 	
 	/**
 	 * 电话
 	 */
+	@Column(length = 11)
 	private String phone;
 	
 	/**
 	 * 签名或座右铭
 	 */
 	private String sign;
+	
+	/**
+	 * sex [1:男，2：女 else 未知]
+	 */
+	@Column(length = 4)
+	private Short sex;
+	
+	
+    /**
+     * 多对多，就是一个用户有可以有多个角色,一个角色也可以被多个用户持有
+     */
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "sys_user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<T_Role> roles;
+	
+	/**
+	 * 多对多   一个用户可以有多个组，一个组也可以被多个用户持有
+	 */
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "sys_user_group", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
+	private Set<T_Group> groups;
+	
 	
 	public T_User() {}
 	
@@ -129,27 +160,7 @@ public class T_User implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
-	public Integer getEnable() {
-		return enable;
-	}
-
-
-	public void setEnable(Integer enable) {
-		this.enable = enable;
-	}
-
-
-	public String getAvatar() {
-		return avatar;
-	}
-
-
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
-
+	
 
 	public String getPhone() {
 		return phone;
@@ -169,5 +180,27 @@ public class T_User implements Serializable {
 	public void setSign(String sign) {
 		this.sign = sign;
 	}
+
+
+	public Set<T_Role> getRoles() {
+		return roles;
+	}
+
+
+	public void setRoles(Set<T_Role> roles) {
+		this.roles = roles;
+	}
+
+
+	public Set<T_Group> getGroups() {
+		return groups;
+	}
+
+
+	public void setGroups(Set<T_Group> groups) {
+		this.groups = groups;
+	}
+	
+	
 	
 }

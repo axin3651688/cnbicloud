@@ -1,5 +1,8 @@
 package com.cnbicloud.vo.abs;
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
 /**
  * @ClassName: LevelBean
  * @Description: TODO(具体级别属性的属性基类)
@@ -7,6 +10,7 @@ package com.cnbicloud.vo.abs;
  * @date 2017年10月30日
  *
  */
+@MappedSuperclass
 public abstract class TreeBean extends AbstractBaseLevelTree {
 
 	/**
@@ -16,52 +20,68 @@ public abstract class TreeBean extends AbstractBaseLevelTree {
 	/*
 	 * 级别
 	 */
-	public Integer lev;
+	public Short lev;
 	/**
 	 * 是否为叶子
 	 */
-	public Integer leaf;
+	public Short leaf;
 
 	/**
 	 * 是否禁用或是否锁住
 	 */
-	public Integer enable;
+	public Short enabled;
 
 	/**
 	 * 头像或图标
 	 */
+	@Column(length = 100)
 	private String avatar;
 
 	/**
 	 * 描述
 	 */
-	private String desc;
+	@Column(length = 100)
+	private String des;
 
 	public TreeBean() {}
 
-	public Integer getLev() {
+	
+
+	public Short getLev() {
 		return lev;
 	}
 
-	public void setLev(Integer lev) {
+
+
+	public void setLev(Short lev) {
 		this.lev = lev;
 	}
 
-	public Integer getLeaf() {
+
+
+	public Short getLeaf() {
 		return leaf;
 	}
 
-	public void setLeaf(Integer leaf) {
+
+
+	public void setLeaf(Short leaf) {
 		this.leaf = leaf;
 	}
 
-	public Integer getEnable() {
-		return enable;
+
+
+	public Short getEnabled() {
+		return enabled;
 	}
 
-	public void setEnable(Integer enable) {
-		this.enable = enable;
+
+
+	public void setEnabled(Short enabled) {
+		this.enabled = enabled;
 	}
+
+
 
 	public String getAvatar() {
 		return avatar;
@@ -71,12 +91,12 @@ public abstract class TreeBean extends AbstractBaseLevelTree {
 		this.avatar = avatar;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDes() {
+		return des;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDesc(String des) {
+		this.des = des;
 	}
 	
 	

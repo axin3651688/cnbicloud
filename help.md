@@ -27,4 +27,11 @@ mvn versions:commit
 
 
 ## [JPA官网](https://docs.spring.io/spring-data/jpa/docs/2.0.2.RELEASE/reference/html/#repositories.query-methods.details)
+
+## springcloud-event-bus
+
+   [CURL内网](curl -d "" "http://mldnjava:hello@192.168.1.118:7101/bus/refresh")
+
+   [CURL外网](curl -d "" "http://mldnjava:hello@cnbigjx.eicp.net:36108/bus/refresh")
+
   

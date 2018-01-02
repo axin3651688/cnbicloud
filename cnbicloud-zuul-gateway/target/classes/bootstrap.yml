@@ -14,7 +14,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://edmin:mldnjava@192.168.1.118:7001/eureka,http://edmin:mldnjava@192.168.1.108:7001/eureka
+      defaultZone:  ${EUREKA_HOME}
   instance:
-    prefer-ip-address: true     # 在地址栏上使用IP地址进行显示
-    instance-id: gateway118-9501.com 
+    instance-id: gateway118-9501.com
+    prefer-ip-address: true  

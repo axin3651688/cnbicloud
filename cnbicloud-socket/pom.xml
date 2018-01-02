@@ -33,6 +33,11 @@
 			<groupId>org.apache.mina</groupId>
 			<artifactId>mina-integration-spring</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>cnbicloud-socket</finalName>

@@ -30,13 +30,13 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer im
 
 	@Override
 	public void configureMessageBroker(MessageBrokerRegistry config) {
-
+		//AbstractSecurityWebSocketMessageBrokerConfigurer
+		//SimpleBrokerMessageHandler
 	}
 
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
 		logger.info("registerStompEndpoints");
-
 		/*registry.addEndpoint("/websocket/tracker").setHandshakeHandler(new DefaultHandshakeHandler() {
 
 			protected Principal determineUser(ServerHttpRequest request, WebSocketHandler wsHandler, Map<String, Object> attributes) {

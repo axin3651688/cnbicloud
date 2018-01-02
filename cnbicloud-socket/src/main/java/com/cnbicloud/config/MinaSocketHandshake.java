@@ -17,7 +17,7 @@ public class MinaSocketHandshake {
 	
 	private final static org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(MinaSocketHandshake.class);
 	/**
-	 * 握手时设备嗅探
+	 * 握手时设备嗅探,建立连接后时访问
 	 * @param session
 	 * @param msg
 	 * @return
@@ -26,10 +26,10 @@ public class MinaSocketHandshake {
 		try {
 			Set<String> set = map.keySet();
 			Iterator<String> it = set.iterator();
-			while (it.hasNext()) {
+			while (it.hasNext()){
 				String key = (String) it.next();
-				if (!key.equalsIgnoreCase("type")) {
-					session.setAttribute(key, map.get(key));
+				if(!key.equalsIgnoreCase("type")){
+					session.setAttribute(key,map.get(key));
 				}
 			}
 			map.put("code", 200);
