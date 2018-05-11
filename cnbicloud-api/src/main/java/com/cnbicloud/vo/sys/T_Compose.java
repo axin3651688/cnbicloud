@@ -46,7 +46,7 @@ public class T_Compose implements Serializable {
 	 * 类型[sys：系统表,app：应用表]
 	 */
 	@Column(length = 16)
-	private String type;
+	private String typ;
 	
 	public T_Compose() {}
 
@@ -82,15 +82,6 @@ public class T_Compose implements Serializable {
 		this.text = text;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-	
-	
 	
 }
 

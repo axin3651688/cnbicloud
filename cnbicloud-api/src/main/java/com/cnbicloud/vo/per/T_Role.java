@@ -54,9 +54,12 @@ public class T_Role implements Serializable {
 	private String company;
 	
 	
-	 @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
-	 private Set<T_User> users;
-
+	@ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
+	private Set<T_User> users;
+    
+	/**
+	 * 一个角色拥有多个权限
+	 */
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "sys_role_permission", joinColumns = {@JoinColumn(name = "role_id")}, inverseJoinColumns = {@JoinColumn(name = "per_id")})
     private Set<T_Permission> resources;

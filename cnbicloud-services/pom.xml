@@ -40,5 +40,6 @@
 		
 		<module>cnbicloud-services-user</module>
 		<module>cnbicloud-services-auth</module>
+		<module>cnbicloud-services-log</module>
 	</modules>
 </project>

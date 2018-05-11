@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 import com.cnbicloud.dao.CnbiJpaRepository;
-import com.cnbicloud.vo.per.T_User;
+import com.cnbicloud.vo.T_User;
 
 
 /**
@@ -19,7 +19,7 @@ import com.cnbicloud.vo.per.T_User;
 @Repository("userDao")
 public interface IUserDao extends CnbiJpaRepository<T_User,Long> {
 
-	public T_User findByUsername(String username);
+	//public T_User findByUsername(String username);
     
 	Optional<T_User> findOneByUsername(String username);
 	

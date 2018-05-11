@@ -2,6 +2,7 @@ package com.cnbicloud.service;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.mina.core.filterchain.DefaultIoFilterChainBuilder;
+import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.filter.codec.serialization.ObjectSerializationCodecFactory;
@@ -12,7 +13,6 @@ import org.apache.mina.filter.logging.MdcInjectionFilter;
 import org.apache.mina.transport.socket.SocketSessionConfig;
 import org.apache.mina.transport.socket.nio.NioSocketAcceptor;
 import com.cnbicloud.bean.Mina;
-import com.cnbicloud.config.MinaSocketHandler;
 import com.cnbicloud.config.SocketKeepAliveMessageFactory;
 /**
  * @ClassName: AsyncSocketService
@@ -29,6 +29,8 @@ public class AsyncSocketService {
 	private NioSocketAcceptor ioAcceptor;
 	
 	private ExecutorService executorService;
+	
+	
 
 	public AsyncSocketService() {
 		this.executorService = Executors.newCachedThreadPool();
@@ -37,10 +39,19 @@ public class AsyncSocketService {
 	public AsyncSocketService(Mina config) throws Exception {
 		this();
 		this.config = config;
-		setIoAcceptor();
+		
 	}
-
-	public void setIoAcceptor() throws Exception {
+    /**
+     * 
+    * @Title: setIoAcceptor  
+    * @Description: TODO(设置连接参数)  
+    * @param @param handler
+    * @param @throws Exception    参数  
+    * @return void    返回类型  
+    * @throws
+     */
+	public void setIoAcceptor(IoHandlerAdapter handler) throws Exception {
+		
 			this.ioAcceptor = new NioSocketAcceptor(this.config.getProcessorCount());
 			this.ioAcceptor.setReuseAddress(true);
 			DefaultIoFilterChainBuilder filterChain = ioAcceptor.getFilterChain();
@@ -59,13 +70,21 @@ public class AsyncSocketService {
 			filterChain.addLast("keepAliveFilter",keepAliveFilter);// 心跳过滤器
 			filterChain.addLast("mdcInjectionFilter", new MdcInjectionFilter());// 在多描述编码(MDC，Multiple Description Coding)中注入IoSession的key属性
 
-			this.ioAcceptor.setHandler(new MinaSocketHandler());//消息处理
+			//this.ioAcceptor.setHandler(new MinaSocketHandler());//消息处理
 			SocketSessionConfig socketConfig = this.ioAcceptor.getSessionConfig();
 			socketConfig.setReadBufferSize(readBufferSize);
 			socketConfig.setReceiveBufferSize(readBufferSize);
 			socketConfig.setIdleTime(IdleStatus.BOTH_IDLE, this.config.getSessionIdleTime());
 	 }
-
+	
+    /**
+     * 
+    * @Title: stop  
+    * @Description: TODO(停止socekt服务)  
+    * @param     参数  
+    * @return void    返回类型  
+    * @throws
+     */
 	public void stop() {
 		if (null != this.ioAcceptor) {
 			this.ioAcceptor.unbind();

@@ -17,7 +17,7 @@
 	      - cnbicloud-services-user          用户
           - cnbicloud-services-auth          授权（公司，部门，角色，应用）
 	      - cnbicloud-services-online        在线(用户,设备，企业等)
-	      - cnbicloud-services-log           日志
+	      - cnbicloud-services-log           日志(按操作功能)
 	      - cnbicloud-services-role          角色 
           - cnbicloud-services-msgbus        消息集成总线          
           - cnbicloud-services-voice         集成讯飞语音
@@ -39,6 +39,11 @@
 
 
 ## Web端，Android端，IOS端可并行开发。。。
+
+## 总共分10大库
+   核心:core，用户，角色
+   日志：log, 按功能分表，在线用户为login表状态为在线的用户
+
  
 
 ## 高可用性(High Availability),简称HA：
@@ -65,6 +70,7 @@
      upload：上传，
      download：下载，
      export:导出
+     export:导入
 
 系统资源（菜单）权限列表有以下N种：
      

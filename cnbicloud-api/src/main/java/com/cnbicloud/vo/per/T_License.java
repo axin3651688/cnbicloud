@@ -27,7 +27,7 @@ public class T_License extends AbstractBase {
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid")
 	@Column(name = "id",length = 32)
-	private String id;
+	private String code;
 	
 	/**
 	 * mode 模式 [1：开源，2：商业]
@@ -72,27 +72,6 @@ public class T_License extends AbstractBase {
 	
 	
 	public T_License() {}
-
-
-
-
-
-	public String getId() {
-		return id;
-	}
-
-
-
-
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-
-
-
-
 
 
 

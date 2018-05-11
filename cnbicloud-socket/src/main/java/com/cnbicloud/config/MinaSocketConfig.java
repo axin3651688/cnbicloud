@@ -42,8 +42,9 @@ public class MinaSocketConfig {
 		long a = System.currentTimeMillis();
 	    IoBuffer.setUseDirectBuffer(false);//heap buffer
 	    IoBuffer.setAllocator(new SimpleBufferAllocator());//
-		try{
+		try{//new MinaSocketHandler()
 			AsyncSocketService socketService = new AsyncSocketService(mina);
+			socketService.getIoAcceptor().setHandler(new MinaSocketHandler());//设置消息处理类
 			InetSocketAddress inetAddress = new InetSocketAddress(mina.getPort());
 			NioSocketAcceptor ioAcceptor = socketService.getIoAcceptor();
 			ioAcceptor.bind(inetAddress);

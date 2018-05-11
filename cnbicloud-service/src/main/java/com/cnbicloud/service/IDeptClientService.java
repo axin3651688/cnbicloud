@@ -14,11 +14,11 @@ import com.cnbicloud.vo.Dept;
 
 @FeignClient(value = "CNBICLOUD-ZUUL-GATEWAY", configuration = FeignClientConfig.class, fallbackFactory = IDeptClientServiceFallbackFactory.class)
 public interface IDeptClientService {
-	@RequestMapping(method = RequestMethod.GET, value = "/cnbi-proxy/dept-proxy/dept/get/{id}")
+	@RequestMapping(method = RequestMethod.GET, value = "/dept/get/{id}")
 	public Dept get(@PathVariable("id") long id);
-	@RequestMapping(method = RequestMethod.GET, value = "/cnbi-proxy/dept-proxy/dept/list")
+	@RequestMapping(method = RequestMethod.GET, value = "/dept/list")
 	public List<Dept> list();
-	@RequestMapping(method = RequestMethod.POST, value = "/cnbi-proxy/dept-proxy/dept/add")
+	@RequestMapping(method = RequestMethod.POST, value = "/dept/add")
 	public boolean add(Dept dept);
 }
 

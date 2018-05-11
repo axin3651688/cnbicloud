@@ -6,7 +6,7 @@ import com.cnbicloud.vo.abs.TreeBean;
 /**
  * 
 * @ClassName: T_Source  
-* @Description: TODO(资源菜单表)  
+* @Description: TODO(系统菜单资源表)  
 * @author 龚佳新 
 * @date 2017年12月8日  
 *
@@ -22,6 +22,8 @@ public class T_Source extends TreeBean {
 	 */
 	@Column(length = 150)
 	private String val;
+	
+	
 	
 	public T_Source(String id,String text,String val) {
 		super();

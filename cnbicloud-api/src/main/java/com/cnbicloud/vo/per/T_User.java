@@ -32,30 +32,18 @@ public class T_User extends AbstractUser {
 	/**
 	 * 登录名称
 	 */
-	@Column(length = 32)
+	@Column(name="susername",length = 32,unique = true)
 	private String username;
 	
 	/**
 	 * 登录密码
 	 */
-	@Column(length = 36)
+	@Column(name="spassword",length = 36)
 	private String password;
-	
-	/**
-	 * 真实姓名
-	 */
-	@Column(length = 28,unique = true)
-	private String trueName;
-	
-	/**
-	 * 生日
-	 */
-	private Date birthday;
-	
 	/**
 	 * 邮箱
 	 */
-	@Column(length = 32,unique = true)
+	@Column(name="semail",length = 32,unique = true)
 	private String email;
 		
 	
@@ -63,12 +51,26 @@ public class T_User extends AbstractUser {
 	/**
 	 * 电话
 	 */
-	@Column(length = 11)
+	@Column(name="sphone",length = 11,unique = true)
 	private String phone;
+	
+	/**
+	 * 真实姓名
+	 */
+	@Column(name="struename",length = 28,unique = false)
+	private String trueName;
+	
+	/**
+	 * 生日
+	 */
+	@Column(name="dbirthday")
+	private Date birthday;
+	
 	
 	/**
 	 * 签名或座右铭
 	 */
+	@Column(name="ssign")
 	private String sign;
 	
 	/**
@@ -81,7 +83,7 @@ public class T_User extends AbstractUser {
     /**
      * 多对多，就是一个用户有可以有多个角色,一个角色也可以被多个用户持有
      */
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "sys_user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<T_Role> roles;
 	

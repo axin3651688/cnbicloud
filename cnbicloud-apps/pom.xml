@@ -59,5 +59,6 @@
 	</build>
 	<modules>
 		<module>cnbicloud-apps-dept</module>
+		<module>cnbicloud-apps-user</module>
 	</modules>
 </project>

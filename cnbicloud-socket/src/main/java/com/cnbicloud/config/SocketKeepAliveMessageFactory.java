@@ -1,18 +1,18 @@
 package com.cnbicloud.config;
-import org.apache.log4j.Logger;
 import org.apache.mina.core.session.IoSession;
 import org.apache.mina.filter.keepalive.KeepAliveMessageFactory;
+import org.slf4j.Logger;
 /**
  * 
 * @ClassName: SocketKeepAliveMessageFactory  
-* @Description: TODO(跳过滤器)  
+* @Description: TODO(心跳过滤器)  
 * @author 龚佳新 
 * @date 2017年12月18日  
 *
  */
 public class SocketKeepAliveMessageFactory implements KeepAliveMessageFactory {
 
-	private final Logger LOG = Logger.getLogger(SocketKeepAliveMessageFactory.class);
+	private final Logger LOG = org.slf4j.LoggerFactory.getLogger(SocketKeepAliveMessageFactory.class);
 	
 	private int requestCount = 0 ;
 	

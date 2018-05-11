@@ -1,6 +1,5 @@
 package com.cnbicloud.config;
 import java.net.InetSocketAddress;
-import org.apache.log4j.Logger;
 import org.apache.mina.core.service.IoHandlerAdapter;
 import org.apache.mina.core.session.IdleStatus;
 import org.apache.mina.core.session.IoSession;
@@ -17,7 +16,7 @@ public class MinaSocketHandler extends IoHandlerAdapter {
 
 
 
-	private final Logger logger = Logger.getLogger(MinaSocketHandler.class);
+	private final org.slf4j.Logger logger =  org.slf4j.LoggerFactory.getLogger(MinaSocketHandler.class);
 	
 	//public static final CharsetDecoder decoder = (Charset.forName("UTF-8")).newDecoder();
     /**

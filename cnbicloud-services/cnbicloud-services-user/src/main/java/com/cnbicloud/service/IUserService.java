@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cnbicloud.dao.IUserDao;
-import com.cnbicloud.vo.per.T_User;
+import com.cnbicloud.vo.T_User;
 /**
  * 
 * @ClassName: IUserService  
@@ -29,12 +29,45 @@ public class IUserService {
 	* @throws
 	 */
 	public T_User findByUsername(String username){
-		Optional<T_User> option =   dao.findOneByUsername(username);
-		if(option.isPresent()) {
-			return option.get();
-		}
-		return null;
+		 Optional<T_User>   option =   dao.findOneByUsername(username);
+		 return option.get();
 	}
+	
+	
+	public Optional<T_User> findOneByUsername(String username){
+		Optional<T_User> option =   dao.findOneByUsername(username);
+		return option;
+	}
+	
+	
+	/**
+	 * 
+	* @Title: findOneByPhone  
+	* @Description: TODO(根据用户名称查询用户对象)  
+	* @param @param phone
+	* @param @return    参数  
+	* @return Optional<T_User>    返回类型  
+	* @throws
+	 */
+	public Optional<T_User> findOneByPhone(String phone){
+		Optional<T_User> option =   dao.findOneByPhone(phone);
+		return option;
+	}
+	
+	/**
+	 * 
+	* @Title: findOneByEmail  
+	* @Description: TODO(根据邮件查询用户)  
+	* @param @param email
+	* @param @return    参数  
+	* @return Optional<T_User>    返回类型  
+	* @throws
+	 */
+	public Optional<T_User> findOneByEmail(String email){
+		Optional<T_User> option =   dao.findOneByEmail(email);
+		return option;
+	}
+	
 	/**
 	 * 
 	* @Title: delete  
@@ -43,7 +76,7 @@ public class IUserService {
 	* @return void    返回类型  
 	* @throws
 	 */
-	public void delete(Long id) {
+	public void deleteById(Long id) {
 		dao.delete(id);
 	}
 	/**
@@ -55,7 +88,20 @@ public class IUserService {
 	* @return T_User    返回类型  
 	* @throws
 	 */
-	public T_User findOne(Long id) {
+	public T_User findById(Long id) {
 		return dao.findOne(id);
+	}
+	
+	/**
+	 * 
+	* @Title: save  
+	* @Description: TODO(保存用户)  
+	* @param @param user
+	* @param @return    参数  
+	* @return T_User    返回类型  
+	* @throws
+	 */
+	public T_User save(T_User user) {
+		return dao.save(user);
 	}
 }

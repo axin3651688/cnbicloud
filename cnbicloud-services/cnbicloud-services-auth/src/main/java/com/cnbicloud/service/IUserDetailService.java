@@ -93,7 +93,7 @@ public class IUserDetailService implements UserDetailsService {
         Set<GrantedAuthority> authSet = new HashSet<GrantedAuthority>();
         for (T_Permission r :resources) {
             //用户可以访问的资源名称（或者说用户所拥有的权限）
-            authSet.add(new SimpleGrantedAuthority(r.getSource().getId()));
+            authSet.add(new SimpleGrantedAuthority(r.getSource().getCode()));
         }
         SecurityUser userDetail = new SecurityUser(user.getUsername(),user.getPassword(),
                 true,//是否可用

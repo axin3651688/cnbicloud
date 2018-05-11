@@ -1,7 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.cnbicloud</groupId>
 	<artifactId>cnbicloud</artifactId>
 	<version>0.0.1</version>
@@ -12,7 +11,7 @@
 		<jdk.version>1.8</jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<mina.version>2.0.7</mina.version>
-		<springboot.version>1.5.4.RELEASE</springboot.version>
+		<springboot.version>1.5.9.RELEASE</springboot.version><!-- 1.5.4 and 1.5.9  2.0.0</version> -->
 		<mysql.version>5.1.39</mysql.version> <!-- 5.0.4 -->
 	</properties>
 
@@ -72,7 +71,7 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-			<!-- 目前国产的最好最快的连接池 -->
+			<!-- 目前国产的最好最快的连接池,还有监控 -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>druid</artifactId>
@@ -105,6 +104,13 @@
 				<artifactId>mina-integration-beans</artifactId>
 				<version>${mina.version}</version>
 			</dependency>
+
+			<dependency><!-- gjx add 2018-03-21 -->
+				<groupId>org.springframework</groupId>
+				<artifactId>springloaded</artifactId>
+				<version>1.2.8.RELEASE</version>
+			</dependency>
+
 
 			<dependency>
 				<groupId>org.apache.mina</groupId>

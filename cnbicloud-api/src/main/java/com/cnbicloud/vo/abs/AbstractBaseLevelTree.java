@@ -24,8 +24,8 @@ public abstract class AbstractBaseLevelTree extends AbstractBase {
 	 */
 	public AbstractBaseLevelTree() {}
 	
-	public AbstractBaseLevelTree(String id, String text) {
-		this.id = id;
+	public AbstractBaseLevelTree(String code, String text) {
+		this.code = code;
 		this.text = text;
 	}
 	

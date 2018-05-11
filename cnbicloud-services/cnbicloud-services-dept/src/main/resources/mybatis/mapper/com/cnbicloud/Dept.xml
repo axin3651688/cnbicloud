@@ -4,15 +4,12 @@
 <mapper namespace="com.cnbicloud.dao.IDeptDAO">
 	<select id="findById" resultType="com.cnbicloud.vo.Dept"
 		parameterType="long">
-		SELECT deptno,dname,loc FROM dept WHERE deptno=#{deptno}
-		;
+		SELECT deptno,dname,loc FROM dept WHERE deptno=#{deptno} ;
 	</select>
 	<select id="findAll" resultType="com.cnbicloud.vo.Dept">
-		SELECT deptno,dname,loc FROM
-		dept ;
+		SELECT deptno,dname,loc FROM dept ;
 	</select>
 	<insert id="doCreate" parameterType="com.cnbicloud.vo.Dept">
-		INSERT INTO dept(dname,loc)
-		VALUES (#{dname},database()) ;
+		INSERT INTO dept(dname,loc) VALUES (#{dname},database()) ;
 	</insert>
 </mapper>  

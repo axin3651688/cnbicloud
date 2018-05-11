@@ -23,9 +23,7 @@ public class DeptProviderFallback implements ZuulFallbackProvider {
 
 			@Override
 			public InputStream getBody() throws IOException {
-				return new ByteArrayInputStream(
-						"{\"deptno\":7777770,\"dname\":\"【ERROR】Zuul-Fallback\",\"loc\":\"Gateway客户端提供\"}"
-								.getBytes());	// 当出现服务调用错误之后返回的数据内容
+				return new ByteArrayInputStream("{\"deptno\":7777770,\"dname\":\"【ERROR】Zuul-Fallback\",\"loc\":\"Gateway客户端提供\"}".getBytes());	// 当出现服务调用错误之后返回的数据内容
 			}
 
 			@Override

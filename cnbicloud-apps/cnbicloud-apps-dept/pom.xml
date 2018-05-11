@@ -13,4 +13,10 @@
 	<build>
 		<finalName>cnbicloud-apps-dept</finalName>
 	</build>
+	<dependencies>
+	  <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency>
+	</dependencies>
 </project>
