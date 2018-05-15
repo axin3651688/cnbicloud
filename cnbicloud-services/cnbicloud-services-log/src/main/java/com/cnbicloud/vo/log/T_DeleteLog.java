@@ -1,15 +1,7 @@
 package com.cnbicloud.vo.log;
-
-
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.cnbicloud.vo.abs.T_TrackLog;
-
 /**
  * 
  * @ClassName: T_deleteLog
@@ -20,28 +12,13 @@ import com.cnbicloud.vo.abs.T_TrackLog;
  */
 @Entity
 @Table(name = "log_delete")
-public class T_DeleteLog extends T_TrackLog {
-
-	/**  
-	* @Fields field:{todo}(用一句话描述这个变量表示什么)  
-	*/ 
-	private static final long serialVersionUID = 1L;
-
+public class T_DeleteLog extends com.cnbicloud.api.log.T_DeleteLog {
 	
-	@ManyToOne( cascade = { CascadeType.ALL},optional = true,fetch = FetchType.LAZY)
-	@JoinColumn(unique = false, nullable = true, updatable = false)
-	private T_LoginLog login;
-
-
-	public T_LoginLog getLogin() {
+	private static final long serialVersionUID = 1L;
+	
+	@Column(nullable = false)
+	public Long getLogin() {
 		return login;
 	}
-
-
-	public void setLogin(T_LoginLog login) {
-		this.login = login;
-	}
-	
-	
 
 }

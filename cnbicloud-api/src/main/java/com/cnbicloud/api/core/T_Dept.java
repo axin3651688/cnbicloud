@@ -1,6 +1,6 @@
 package com.cnbicloud.api.core;
 
-import com.cnbicloud.api.base.AbsEntity;
+import com.cnbicloud.api.base.abs.AbsBean;
 
 /**
  * 
@@ -10,7 +10,7 @@ import com.cnbicloud.api.base.AbsEntity;
 * @date 2018年3月26日  
 *
  */
-public class T_Dept extends AbsEntity{
+public class T_Dept extends AbsBean{
 
 	/**  
 	* @Fields field:{todo}(用一句话描述这个变量表示什么)  

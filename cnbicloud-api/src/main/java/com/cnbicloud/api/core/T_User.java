@@ -1,7 +1,7 @@
 package com.cnbicloud.api.core;
 import java.util.Date;
 
-import com.cnbicloud.api.base.AbsEntity;
+import com.cnbicloud.api.base.abs.AbsBean;
 /**
  * 
 * @ClassName: T_User  
@@ -10,7 +10,7 @@ import com.cnbicloud.api.base.AbsEntity;
 * @date 2018年3月21日  
 *
  */
-public class T_User extends AbsEntity {
+public class T_User extends AbsBean {
 
 	/**  
 	* @Fields field:{todo}(用一句话描述这个变量表示什么)  

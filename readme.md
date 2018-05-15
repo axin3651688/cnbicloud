@@ -41,9 +41,66 @@
 ## Web端，Android端，IOS端可并行开发。。。
 
 ## 总共分10大库
-   核心:core，用户，角色
-   日志：log, 按功能分表，在线用户为login表状态为在线的用户
+### 核心:core，
 
+       用户表   sys_users
+       用户组   sys_groups
+       牌照     sys_licenses
+                个人客户：按用户授权     1
+                企业客户:角色授权        2  
+                混合客户:用户角色双授权  3
+       公司     sys_companys
+       部门     sys_depts
+       角色     sys_roles
+       系统模块 sys_sources
+       数据字典 sys_dicts
+
+个性 ：per[personality]
+
+
+
+### 客户模块（资源），m
+
+       数据源：  m_dataSource
+       数据模型：m_model
+       视图组件: m_view
+       控制器：  m_controller 
+       组合模块: m_sources
+
+### 认证：auth
+        
+        是否为合法用户
+        有无接口调用权限
+        提供我的权限接口：用户权限+我的角色权限
+        角色系统模块授权
+        角色客户模块授权
+        主要表有：
+        auth_user_token  [id,token,user_id,type(授权的应用)]
+        auth_user_group[id,group_id,user_id,join_time]
+        auth_user_depts[id,user_id,dept_id]
+        auth_user_group_action[id,ug_id,action(动作类型)]
+
+
+按用户授权
+
+        auth_user_sys_sources[id,source_id,user_id,type(系统模块)] 
+        auth_user_m_sources[id,source_id,user_id,type(客户模块)]
+        auth_user_sys_sources_action[系统模块的动作接口权限]
+        auth_user_m_sources_action[客户模块的动作接口权限]
+       
+
+按角色授权
+
+        auth_role_sys_sources[id,source_id,user_id,type(系统模块)] 
+        auth_role_m_sources[id,source_id,user_id,type(客户模块)]
+        auth_role_sys_sources_action[系统模块的动作接口权限]
+        auth_role_m_sources_action[客户模块的动作接口权限]
+
+
+    
+
+### 日志：log, 按功能分表，在线用户为login表状态为online的用户，如果数据巨增的情
+况下，再不影响页面调用的情况下，
  
 
 ## 高可用性(High Availability),简称HA：

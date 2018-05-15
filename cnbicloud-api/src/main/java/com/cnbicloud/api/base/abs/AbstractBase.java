@@ -1,7 +1,6 @@
 
 package com.cnbicloud.api.base.abs;
 
-import com.cnbicloud.api.base.AbsEntity;
 /**
  * 
 * @ClassName: com.cnbicloud.vo.base.CommonBean  
@@ -10,7 +9,7 @@ import com.cnbicloud.api.base.AbsEntity;
 * @date 2017年11月29日  
 *   {id,enabled,avatar,code,text}
  */
-public abstract class AbstractBase extends AbsEntity {
+public abstract class AbstractBase extends AbsBean {
 
 	private static final long serialVersionUID = 1L;
 	

@@ -1,5 +1,5 @@
 package com.cnbicloud.api.core;
-import com.cnbicloud.api.base.TreeBean;
+import com.cnbicloud.api.base.tree.TreeBean;
 /**
  * 
 * @ClassName: T_Company  
