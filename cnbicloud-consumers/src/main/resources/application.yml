@@ -20,4 +20,4 @@ eureka:
   client: 
     register-with-eureka: false #因为是消费都，也就是真正意义上的客户端,所以不用在euraka上注册 
     service-url: 
-      defaultZone: http://edmin:mldnjava@eureka-7001.com:7001/eureka
+      defaultZone: http://edmin:mldnjava@192.168.1.108:7001/eureka
