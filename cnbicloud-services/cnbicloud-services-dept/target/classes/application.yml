@@ -1,0 +1,17 @@
+<<<<<<< HEAD:cnbicloud-provides/cnbicloud-provides-dept/target/classes/application.yml
+#eureka: # 一定要编写一个eureka的地址
+  #client: # 目的是为了让客户端可以通过eureka找到SpringCloudConfig微服务
+    #service-url:
+      #defaultZone: http://edmin:mldnjava@192.168.1.118/eureka,http://edmin:mldnjava@192.168.1.108:7001/eureka
+spring:
+  application:
+    name: cnbicloud-provider-dept
+=======
+#eureka: # 一定要编写一个eureka的地址
+  #client: # 目的是为了让客户端可以通过eureka找到SpringCloudConfig微服务
+    #service-url:
+      #defaultZone: http://edmin:mldnjava@192.168.1.118/eureka,http://edmin:mldnjava@192.168.1.108:7001/eureka
+spring:
+  application:
+    name: cnbicloud-provider-dept
+>>>>>>> 46849f9e614725c540dee6367c27eb9b7d1d51c4:cnbicloud-services/cnbicloud-services-dept/target/classes/application.yml

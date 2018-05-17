@@ -1,0 +1,53 @@
+<<<<<<< HEAD:cnbicloud-consumers/src/main/resources/application.yml
+server:
+  port: 81
+
+
+logging:
+  level:
+    com.cnbicloud.service: DEBUG
+
+feign:
+  compression:
+    request:
+      mime-types:       # 可以被压缩的类型
+      - text/xml
+      - application/xml
+      - application/json
+      min-request-size: 2048 # 超过2048的字节进行压缩
+
+
+eureka: 
+  client: 
+    register-with-eureka: false #因为是消费都，也就是真正意义上的客户端,所以不用在euraka上注册 
+    service-url: 
+      defaultZone: http://edmin:mldnjava@192.168.1.108:7001/eureka
+=======
+server:
+  port: 81
+
+
+logging:
+  level:
+    com.cnbicloud.service: DEBUG
+
+feign:
+  compression:
+    request:
+      mime-types:       # 可以被压缩的类型
+      - text/xml
+      - application/xml
+      - application/json
+      min-request-size: 2048 # 超过2048的字节进行压缩
+
+
+eureka: 
+  client: 
+    register-with-eureka: false #因为是消费都，也就是真正意义上的客户端,所以不用在euraka上注册 
+    service-url: 
+      defaultZone:  ${EUREKA_HOME}
+      fetch-registry: false     # 不通过eureka获取注册信息
+  instance: # eureak实例定义
+    hostname: eureka118-81.com # 定义Eureka实例所在的主机名称
+    prefer-ip-address: true
+>>>>>>> 46849f9e614725c540dee6367c27eb9b7d1d51c4:cnbicloud-apps/cnbicloud-apps-dept/src/main/resources/application.yml

@@ -1,4 +1,5 @@
 .settings/
+*.settings/
 *.classpath
 *.project
 .externalToolBuilders
@@ -18,6 +19,10 @@ RemoteSystemsTempFiles/
 *.project
 *.externalToolBuilders/
 target/
+*.target/*
+*.logs/
+*.logs/*
+
 .recommenders/
 cnbi-server/cnbi-portal-webapp/src/main/webapp/bower_components/cnbi/cnbijgx.js
 cnbi-server/cnbi-portal-webapp/src/main/webapp/bower_components/dist/

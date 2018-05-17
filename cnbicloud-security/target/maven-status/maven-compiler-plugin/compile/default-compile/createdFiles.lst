@@ -1,0 +1,3 @@
+com\cnbicloud\config\AuthoritiesConstants.class
+com\cnbicloud\config\WebSecurityConfig.class
+com\cnbicloud\config\SecurityUtils.class

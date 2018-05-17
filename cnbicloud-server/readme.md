@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ##服务调用方,即consumer或client
 + Feign包含了Ribbon(负载均衡)和Hystrix(熔断技术),使用fein技术实现接口化调用，取消以前的远程接口用户
 + 在调用方做熔断和负载均衡的的处理
@@ -32,3 +33,10 @@ http://localhost:3000
 关系表
 可运行动态查询
 可以使用像Postman 或者类似的HTTP客户端工具来调用REST API。
+=======
+##服务调用方,即consumer或client
++ Feign包含了Ribbon(负载均衡)和Hystrix(熔断技术),使用fein技术实现接口化调用，取消以前的远程接口用户
++ 在调用方做熔断和负载均衡的的处理
+
+##与路由网关ZUUL-GATEWAY配套使用
+>>>>>>> 46849f9e614725c540dee6367c27eb9b7d1d51c4

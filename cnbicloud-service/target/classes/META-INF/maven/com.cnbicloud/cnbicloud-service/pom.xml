@@ -15,6 +15,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
+		<!-- <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-feign</artifactId>
@@ -25,6 +29,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-	   <finalName>cnbicloud-service</finalName>
+		<finalName>cnbicloud-service</finalName>
 	</build>
 </project>
