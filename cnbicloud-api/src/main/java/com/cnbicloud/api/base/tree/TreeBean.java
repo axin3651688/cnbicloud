@@ -32,15 +32,13 @@ public abstract class TreeBean extends AbstractBaseLevelTree {
 
 	//private String avatar;
 
-	private String des;
+	protected String des;
 
 	public TreeBean() {}
 
 	
 
-	public Short getLev() {
-		return lev;
-	}
+	
 
 
 
@@ -48,11 +46,11 @@ public abstract class TreeBean extends AbstractBaseLevelTree {
 		this.lev = lev;
 	}
 
-
-
-	public Short getLeaf() {
-		return leaf;
+	public void setDesc(String des) {
+		this.des = des;
 	}
+
+
 
 
 
@@ -60,14 +58,20 @@ public abstract class TreeBean extends AbstractBaseLevelTree {
 		this.leaf = leaf;
 	}
 	
+	public Short getLeaf() {
+		return leaf;
+	}
+	
+	public Short getLev() {
+		return lev;
+	}
+	
 
 	public String getDes() {
 		return des;
 	}
 
-	public void setDesc(String des) {
-		this.des = des;
-	}
+	
 	
 	
 

@@ -1,6 +1,6 @@
 package com.cnbicloud.dao;
 
-import com.cnbicloud.vo.org.T_Company;
+import com.cnbicloud.vo.T_Company;
 
 public interface ICompanyDao extends CnbiJpaRepository<T_Company,String> {
 

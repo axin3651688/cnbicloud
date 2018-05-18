@@ -5,7 +5,7 @@ import java.util.Set;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
-import com.cnbicloud.vo.per.T_Role;
+import com.cnbicloud.api.core.T_Role;
 
 /**
  * 

@@ -1,10 +1,6 @@
 package com.cnbicloud.service;
-
-
 import java.util.*;
-
 import javax.annotation.Resource;
-
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,10 +11,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.cnbicloud.api.auth.Auth_Action;
+import com.cnbicloud.api.core.T_Role;
+import com.cnbicloud.api.core.T_User;
 import com.cnbicloud.pojo.SecurityUser;
-import com.cnbicloud.vo.per.T_Permission;
-import com.cnbicloud.vo.per.T_Role;
-import com.cnbicloud.vo.per.T_User;
 @Service
 public class IUserDetailService implements UserDetailsService {
 	
@@ -86,14 +82,14 @@ public class IUserDetailService implements UserDetailsService {
 		//allActions.addAll((List<String>) map.get("allActions")) ;
 		Boolean isUnLocked = new Boolean(user.getEnabled().toString());
 		//Set<T_Role> roles = (List<T_Role>) map.get("roles") ;
-		List<T_Permission> resources = (List<T_Permission>) map.get("permissions") ;
+		List<Auth_Action> resources = (List<Auth_Action>) map.get("permissions") ;
 		//user.setRoles(allRoles);
 		//user.setPermissions(allActions);
      
         Set<GrantedAuthority> authSet = new HashSet<GrantedAuthority>();
-        for (T_Permission r :resources) {
+        for (Auth_Action r :resources) {
             //用户可以访问的资源名称（或者说用户所拥有的权限）
-            authSet.add(new SimpleGrantedAuthority(r.getSource().getCode()));
+            authSet.add(new SimpleGrantedAuthority(r.getCode()));
         }
         SecurityUser userDetail = new SecurityUser(user.getUsername(),user.getPassword(),
                 true,//是否可用

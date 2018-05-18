@@ -1,0 +1,51 @@
+spring:
+  profiles:
+    active:
+      - dev
+---
+server:
+  port: 8001
+spring:
+  profiles: dev
+  rabbitmq:     # 现在将集成RabbitMQ作为消息服务总线处理
+    host: rabbitmq-server   #RabbitMQ主机服务地址
+    port: 5672     #RabbitMQ的监听端口
+    username: cnbigjx    #用户名
+    password: 123456    #ddd密码
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver      # 配置MySQL的驱动程序类  com.mysql.cj.jdbc.Driver  com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.118:3306/jpa_log?useSSL=false&serverTimezone=GMT       # 数据库连接地址
+    username: root                                  # 数据库用户名
+    password:                           # 数据库连接密码
+    dbcp2:                                          # 进行数据库连接池的配置
+      min-idle: 5                                   # 数据库连接池的最小维持连接数    
+      initial-size: 5                               # 初始化提供的连接数
+      max-total: 5                                  # 最大的连接数
+      max-wait-millis: 200                          # 等待连接获取的最大超时时间
+  jpa:
+      open-in-view: false
+      ##database-platform: org.hibernate.dialect.MySQLInnoDBDialect
+      database: MYSQL
+      show-sql: true
+      
+      #generate-ddl: true
+      properties: 
+           #hibernate.dialect: org.hibernate.dialect.MySQLInnoDBDialect
+           hibernate.cache.use_second_level_cache: true
+           hibernate.cache.use_query_cache: false
+           hibernate.generate_statistics: true
+           #hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+      hibernate:
+          ddl-auto: update
+          naming-strategy: org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy
+  application:
+    name: cnbicloud-service-log
+
+
+info:
+  app-name: log
+  company-name: www.cnbisoft.com.cn
+  build-artifactId: $project.artifactId$
+  app-version: $project.version$
+  version: gjx118lulu

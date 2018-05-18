@@ -12,6 +12,9 @@ import java.net.InetAddress;
 public class UUIDGenerator {
 	
 	private static final String PREFIX = "00000000";
+	
+	
+	public static final String SPLIT_FLAG = "@";
 
 	
 	public static String generate(String prefix,String ip,String jvm,String time) {
@@ -109,6 +112,30 @@ public class UUIDGenerator {
 		}
 		return result;
 	}
+	
+	/**
+	 * 
+	* @Title: generateTablePrimaryId  
+	* @Description: TODO(表生成主键用到的)  
+	* @param @param ids
+	* @param @return    参数  
+	* @return String    返回类型  
+	* @throws
+	 */
+	public static String generateTablePrimaryId(Long... ids ) {
+		int len = ids.length;
+		if(len == 1)return ids[0]+"";
+		StringBuffer sf = new StringBuffer();
+		for (int i = 0; i < len; i++) {
+			sf.append(ids[i]+"");
+			if(i != len -1) {
+				sf.append(SPLIT_FLAG);
+			}
+		}
+		return sf.toString();
+	}
+	
+	
 	
 	public static void main(String[] args) {
 		String str = UUIDGenerator.generate();

@@ -19,33 +19,35 @@
 		<artifactId>spring-boot-starter-actuator</artifactId>
 	</dependency>
 
-	<dependency>
+<!-- 	<dependency>
 		<groupId>org.springframework.cloud</groupId>
 		<artifactId>spring-cloud-starter-bus-amqp</artifactId>
-	</dependency>
+	</dependency> -->
 
 
-	<dependency>
+<!-- 	<dependency>
 		<groupId>org.springframework.cloud</groupId>
 		<artifactId>spring-cloud-starter-eureka</artifactId>
 	</dependency>
 	<dependency>
 		<groupId>org.springframework.cloud</groupId>
 		<artifactId>spring-cloud-starter-config</artifactId>
-	</dependency>
+	</dependency> -->
 
 
-	<dependency>
+	<!-- <dependency>
 		<groupId>org.springframework.cloud</groupId>
 		<artifactId>spring-cloud-starter-feign</artifactId>
-	</dependency>
+	</dependency> -->
 
 
-	<dependency>
+	<!-- <dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-security</artifactId>
 	</dependency>
 
+ -->
+ 
 
 	<dependency>
 		<groupId>com.cnbicloud</groupId>

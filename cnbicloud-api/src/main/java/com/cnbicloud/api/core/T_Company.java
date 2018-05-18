@@ -16,42 +16,32 @@ public class T_Company extends TreeBean{
 	/**
 	 * 所属license,即认证信息
 	 */
-	private String license;
+	protected String license;
 	/**
 	 * 所属行业
 	 */
-	private String industry;
+	protected String industry;
 	
 	/**
 	 * 名称 [全称]
 	 */
-	private String fullname;
+	protected String fullname;
 	
 	/**
 	 * 规模
 	 */
 	
-    private Short scale;
+	protected Short scale;
     
     
     /**
      * 所处城市
      */
-    private String city;
-
-
-	public String getLicense() {
-		return license;
-	}
+	protected String city;
 
 
 	public void setLicense(String license) {
 		this.license = license;
-	}
-
-
-	public String getIndustry() {
-		return industry;
 	}
 
 
@@ -60,18 +50,8 @@ public class T_Company extends TreeBean{
 	}
 
 
-	public String getFullname() {
-		return fullname;
-	}
-
-
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
-	}
-
-
-	public Short getScale() {
-		return scale;
 	}
 
 
@@ -80,17 +60,36 @@ public class T_Company extends TreeBean{
 	}
 
 
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+	public String getLicense() {
+		return license;
+	}
+
+
+	public String getIndustry() {
+		return industry;
+	}
+
+
+	public String getFullname() {
+		return fullname;
+	}
+
+
+	public Short getScale() {
+		return scale;
+	}
+
+
 	public String getCity() {
 		return city;
 	}
 
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-    
-    
-    
-    
-    
+  //
+	
+	
 }
