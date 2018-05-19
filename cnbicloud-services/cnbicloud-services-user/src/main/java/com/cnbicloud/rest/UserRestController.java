@@ -1,5 +1,4 @@
 package com.cnbicloud.rest;
-import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +42,6 @@ public class UserRestController {
 		user.setTrueName(phone);
 		user.setPassword(password);
 		user.setPhone(phone);
-		user.setBirthday(new Date());
 		user.setEmail(phone+"@cnbisoft.com");
 		user.setSign(username+phone);
 		user = userService.save(user);

@@ -1,7 +1,5 @@
 package com.cnbicloud.vo;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +15,7 @@ import javax.persistence.Table;
 *
  */
 @Table
-@Entity(name = "sys_app_user")
+@Entity(name = "sys_users")
 public class T_User extends com.cnbicloud.api.core.T_User{
 
 	/**  
@@ -25,7 +23,9 @@ public class T_User extends com.cnbicloud.api.core.T_User{
 	*/ 
 	private static final long serialVersionUID = 1L;
 	
-	public T_User() {}
+	public T_User() {
+		this.birthday = System.currentTimeMillis();
+	}
 	
 	public T_User(String username,String password) {
 		this.username = username;
@@ -66,7 +66,7 @@ public class T_User extends com.cnbicloud.api.core.T_User{
 
 	
 	@Column(name="dbirthday")
-	public Date getBirthday() {
+	public Long getBirthday() {
 		return birthday;
 	}
 

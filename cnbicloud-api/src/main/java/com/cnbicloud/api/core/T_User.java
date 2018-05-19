@@ -1,5 +1,4 @@
 package com.cnbicloud.api.core;
-import java.util.Date;
 
 import com.cnbicloud.api.base.abs.AbsBean;
 /**
@@ -52,7 +51,7 @@ public class T_User extends AbsBean {
 	/**
 	 * 生日
 	 */
-	public Date birthday;
+	public Long birthday;
 	
 	
 	/**
@@ -95,7 +94,7 @@ public class T_User extends AbsBean {
 
 	
 
-	public Date getBirthday() {
+	public Long getBirthday() {
 		return birthday;
 	}
 
@@ -115,7 +114,7 @@ public class T_User extends AbsBean {
 	public void setSex(Short sex) {
 		this.sex = sex;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(Long birthday) {
 		this.birthday = birthday;
 	}
 	public void setTrueName(String trueName) {

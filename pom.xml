@@ -30,9 +30,15 @@
 				<artifactId>cnbicloud-api</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			
 			<dependency>
 				<groupId>com.cnbicloud</groupId>
 				<artifactId>cnbicloud-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.cnbicloud</groupId>
+				<artifactId>cnbicloud-services-core</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
