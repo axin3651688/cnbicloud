@@ -1,0 +1,96 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+server:
+  port: 8001
+spring:
+  profiles: dev
+  rabbitmq:     # 现在将集成RabbitMQ作为消息服务总线处理
+    host: rabbitmq-server   #RabbitMQ主机服务地址
+    port: 5672     #RabbitMQ的监听端口
+    username: cnbigjx    #用户名
+    password: 123456    #ddd密码
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver      # 配置MySQL的驱动程序类
+    url: jdbc:mysql://192.168.1.108:3306/mldn8001         # 数据库连接地址
+    username: root                                  # 数据库用户名
+    password: 1                            # 数据库连接密码
+    dbcp2:                                          # 进行数据库连接池的配置
+      min-idle: 5                                   # 数据库连接池的最小维持连接数    
+      initial-size: 5                               # 初始化提供的连接数
+      max-total: 5                                  # 最大的连接数
+      max-wait-millis: 200                          # 等待连接获取的最大超时时间
+  application:
+    name: cnbicloud-provider-dept
+eureka:
+  client: # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://edmin:mldnjava@192.168.1.118:7001/eureka,http://edmin:mldnjava@192.168.1.108:7001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 8 # 如果现在超过了5秒的间隔（默认是90秒）
+    instance-id: dept118-8001.com  # 在信息列表时显示主机名称
+    prefer-ip-address: true        # 当为true时,访问的路径变为IP地址
+
+info:
+  app-name: dept
+  company-name: www.cnbisoft.com.cn
+  build-artifactId: $project.artifactId$
+  app-version: $project.version$
+  version: gjx118lulu
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml    # mybatis配置文件所在路径
+  type-aliases-package: com.cnbicloud.vo                # 定义所有操作类的别名所在包
+  mapper-locations:                                     # 所有的mapper映射文件
+  - classpath:mybatis/mapper/**/*.xml
+
+  
+---
+server:
+  port: 8002
+spring:
+  profiles: beta  
+  rabbitmq:     # 现在将集成RabbitMQ作为消息服务总线处理
+    host: 192.168.1.118   #RabbitMQ主机服务地址
+    port: 5672     #RabbitMQ的监听端口
+    username: cnbigjx    #RabbitMQ的用户名
+    password: 123456     #RabbitMQ的密码是这样子的吗
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver      # 配置MySQL的驱动程序类
+    url: jdbc:mysql://localhost:3306/mldn8002       # 数据库连接地址
+    username: root                                  # 数据库用户名
+    password: 1                                     # 数据库连接密码
+    dbcp2:                                          # 进行数据库连接池的配置
+      min-idle: 5                                   # 数据库连接池的最小维持连接数    
+      initial-size: 5                               # 初始化提供的连接数
+      max-total: 5                                  # 最大的连接数
+      max-wait-millis: 200                          # 等待连接获取的最大超时时间
+  application:
+    name: cnbicloud-provider-dept
+eureka:
+  client: # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://edmin:mldnjava@192.168.1.118:7001/eureka,http://edmin:mldnjava@192.168.1.108:7001/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 8 # 如果现在超过了5秒的间隔（默认是90秒）
+    instance-id: dept108-8002.com  # 在信息列表时显示主机名称
+    prefer-ip-address: true     # 当为true时,访问的路径变为IP地址
+
+info:
+  app-name: dept
+  company-name: www.cnbisoft.com.cn
+  build-artifactId: $project.artifactId$
+  app-version: $project.version$
+  version: 1082
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml    # mybatis配置文件所在路径
+  type-aliases-package: com.cnbicloud.vo           # 定义所有操作类的别名所在包
+  mapper-locations:                                     # 所有的mapper映射文件
+  - classpath:mybatis/mapper/**/*.xml

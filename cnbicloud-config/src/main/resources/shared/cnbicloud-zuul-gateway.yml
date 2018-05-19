@@ -1,0 +1,126 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev
+  application:
+    name: cnbicloud-zuul-gateway
+server:
+  port: 9501
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+zuul:
+  AuthorizedRequestFilter: 
+    pre: 
+      disable: false
+  #prefix: /cnbi-proxy
+  ignored-services:
+    "*"
+  #routes: 
+    #cnbicloud-provider-company: /company-proxy/** 
+    #cnbicloud-provider-dept: /dept-proxy/**
+    #cnbicloud-provider-user: /user-proxy/**
+    #cnbicloud-provider-upload: /upload-proxy/**
+  routes:
+    cnbicloud-provider-dept:
+        path: /dept/**
+        serviceId: cnbicloud-provider-dept
+        stripPrefix: false
+        sensitiveHeaders:  
+
+    cnbicloud-provider-user:
+        path: /user/**
+        serviceId: cnbicloud-provider-user
+        stripPrefix: false
+        sensitiveHeaders:  
+
+# zuul代理的安全认证
+security:
+  basic:
+    enabled: true
+  user:
+    name: zdmin
+    password: mldnjava
+info:
+  app.name: com-cnbicloud
+  company.name: www.mldn.cn
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+eureka:
+  client:
+    service-url:
+      defaultZone: http://edmin:mldnjava@192.168.1.118:7001/eureka,http://edmin:mldnjava@192.168.1.108:7001/eureka
+  instance:
+    prefer-ip-address: true     # 在地址栏上使用IP地址进行显示
+    instance-id: gateway118-9501.com
+---
+spring:
+  profiles: beta
+  application:
+    name: cnbicloud-zuul-gateway
+server:
+  port: 9501
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+zuul:
+  AuthorizedRequestFilter: 
+    pre: 
+      disable: false
+  prefix: /cnbi-proxy
+  ignored-services:
+    "*"
+  #routes: 
+    #cnbicloud-provider-company: /company-proxy/** 
+    #cnbicloud-provider-dept: /dept-proxy/**
+    #cnbicloud-provider-user: /user-proxy/**
+    #cnbicloud-provider-upload: /upload-proxy/**
+  routes:
+    cnbicloud-provider-dept:
+        path: /dept/**
+        serviceId: cnbicloud-provider-dept
+        stripPrefix: false
+        sensitiveHeaders:  
+
+    cnbicloud-provider-user:
+        path: /user/**
+        serviceId: cnbicloud-provider-user
+        stripPrefix: false
+        sensitiveHeaders:  
+# zuul代理的安全认证
+security:
+  basic:
+    enabled: true
+  user:
+    name: zdmin
+    password: mldnjava
+
+info:
+  app.name: com-cnbicloud
+  company.name: www.mldn.cn
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+eureka:
+  client:
+    service-url:
+      defaultZone: http://edmin:mldnjava@192.168.1.118:7001/eureka,http://edmin:mldnjava@192.168.1.108:7001/eureka
+  instance:
+    prefer-ip-address: true     # 在地址栏上使用IP地址进行显示
+    instance-id: gateway108-9501.com  

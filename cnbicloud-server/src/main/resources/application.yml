@@ -9,6 +9,12 @@ security:
 spring:
   application:
     name: cnbicloud-server
+  cloud:
+    config:
+      uri: http://cnbicloud-config:7101
+      fail-fast: true
+      password: mldnjava
+      username: admin     
 eureka: 
   client: # 客户端进行Eureka注册的配置,此台eureka服务在别的机子上进行注册
     service-url:
