@@ -47,5 +47,4 @@
 	</dependencies>
 	<build>
 		<finalName>cnbicloud-services-auth</finalName>
-	</build>
-</project>
+	</build></project>

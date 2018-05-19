@@ -1,3 +1,4 @@
+
 package com.cnbicloud.commons.config;
 
 import org.springframework.context.annotation.Bean;

@@ -21,4 +21,3 @@ public interface IDeptClientService {
 	@RequestMapping(method = RequestMethod.POST, value = "/dept/add")
 	public boolean add(Dept dept);
 }
-

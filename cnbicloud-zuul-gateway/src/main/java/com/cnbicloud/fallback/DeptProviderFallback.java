@@ -1,9 +1,7 @@
 package com.cnbicloud.fallback;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
 import org.springframework.cloud.netflix.zuul.filters.route.ZuulFallbackProvider;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -52,5 +50,4 @@ public class DeptProviderFallback implements ZuulFallbackProvider {
 				
 			}};
 	}
-
 }

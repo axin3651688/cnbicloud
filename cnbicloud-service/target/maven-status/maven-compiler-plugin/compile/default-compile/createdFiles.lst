@@ -1,7 +1,0 @@
-com\cnbicloud\service\fallback\IUserClientServiceFallbackFactory$1.class
-com\cnbicloud\commons\config\FeignClientConfig.class
-com\cnbicloud\service\IUserClientService.class
-com\cnbicloud\service\fallback\IUserClientServiceFallbackFactory.class
-com\cnbicloud\service\fallback\IDeptClientServiceFallbackFactory$1.class
-com\cnbicloud\service\IDeptClientService.class
-com\cnbicloud\service\fallback\IDeptClientServiceFallbackFactory.class

@@ -1,3 +1,31 @@
+<<<<<<< HEAD
+server: #此配制管理做为一个微服务在enreka注册中心进行注册 
+  port: 7101
+spring: 
+  rabbitmq:     # 现在将集成RabbitMQ作为消息服务总线处理
+    host: 192.168.1.118   # RabbitMQ主机服务地址
+    port: 5672    # RabbitMQ的监听端口
+    username: cnbigjx  # 用户名
+    password: 123456 # 密码
+  application:
+    name: cnbicloud-config
+  cloud:  # 进行SpringCloud的相关配置
+    config: # 进行SpringCloudConfig的相关配置
+      server: # 设置服务的连接地址
+        git:  # 本次使用的是GIT作为仓库的管理，所以需要设置GIT的连接地址
+          uri: git@github.com:axin3651688/cnbiconfig.git    # 为公共仓库信息，如果某些信息找不到了就使用它
+          search-paths:
+          - cnbicloud-*
+
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://edmin:mldnjava@192.168.1.118:7001/eureka,http://edmin:mldnjava@192.168.1.108:7001/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: config108-7101.com:7101
+    
+=======
 server: #此配制管理做为一个微服务在enreka注册中心进行注册 
   port: 7101
 spring: 
@@ -23,3 +51,4 @@ eureka:
   instance: 
     prefer-ip-address: true
     instance-id: config118-7101.com:7101
+>>>>>>> 46849f9e614725c540dee6367c27eb9b7d1d51c4
