@@ -5,15 +5,22 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.cnbicloud</groupId>
-		<artifactId>cnbicloud-services</artifactId>
+		<artifactId>cnbicloud</artifactId>
 		<version>0.0.1</version>
 	</parent>
-	<artifactId>cnbicloud-services-core</artifactId>
-	<name>cnbicloud-services-core</name>
+	<artifactId>cnbicloud-core</artifactId>
+	<name>cnbicloud-core</name>
+	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+	</dependencies>
 	<build>
-		<finalName>cnbicloud-services-core</finalName>
+		<finalName>cnbicloud-core</finalName>
 	</build>
 </project>

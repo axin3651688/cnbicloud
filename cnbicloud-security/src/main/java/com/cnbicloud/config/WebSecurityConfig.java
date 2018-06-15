@@ -56,8 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("ROLE_ADMIN");
 				return new UsernamePasswordAuthenticationToken(token.getName(), token.getCredentials(), authorities);
 			}
-		});
-		///*/
+		});*/
 	}
     /**
      * 定义哪些URL需要被保护、哪些不需要被保护

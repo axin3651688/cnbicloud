@@ -46,7 +46,6 @@
 		<finalName>cnbicloud-services</finalName>
 	</build>
 	<modules>
-		<module>cnbicloud-services-core</module>
 		<module>cnbicloud-services-dept</module>
 		<module>cnbicloud-services-company</module>
 		<module>cnbicloud-services-user</module>

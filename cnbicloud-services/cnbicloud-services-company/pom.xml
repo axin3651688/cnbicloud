@@ -56,7 +56,7 @@
 
 	<dependency>
 			<groupId>com.cnbicloud</groupId>
-			<artifactId>cnbicloud-services-core</artifactId>
+			<artifactId>cnbicloud-core</artifactId>
 		</dependency>
 
 

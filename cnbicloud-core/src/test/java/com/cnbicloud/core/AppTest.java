@@ -1,4 +1,4 @@
-package org.cnbicloud.services.core;
+package com.cnbicloud.core;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

@@ -33,7 +33,7 @@ public class T_License extends AbstractBase {
 	private Short maxLevel;
 	
 	/**
-	 * type 类型[1：个人(单帐套许可)，2：企业(多帐套许可)]
+	 * type 类型[21：个人(单帐套许可)，22：企业(多帐套许可)]
 	 */
 	private Short typ;
 	

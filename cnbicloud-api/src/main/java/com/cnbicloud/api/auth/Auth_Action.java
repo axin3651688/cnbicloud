@@ -17,6 +17,11 @@ public class Auth_Action implements Serializable {
 	 * 编码:【per,insert,delete,update,select,export,import,】
 	 */
 	public String code;
+	
+	/**
+	 * 资源编码
+	 */
+	public String sourceId;
     
 	/**
 	 * 动作名称

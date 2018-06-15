@@ -2,12 +2,13 @@ package com.cnbicloud.tools;
 
 
 import java.net.InetAddress;
-
 /**
  * 
- * @author 龚佳新
- *
- * @date 2014年4月10日下午5:57:06
+* @ClassName: UUIDGenerator  
+* @Description: TODO(UUID生成器)  
+* @author 龚佳新 
+* @date 2018年6月8日  
+*
  */
 public class UUIDGenerator {
 	

@@ -38,7 +38,7 @@
 			</dependency>
 			<dependency>
 				<groupId>com.cnbicloud</groupId>
-				<artifactId>cnbicloud-services-core</artifactId>
+				<artifactId>cnbicloud-core</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
@@ -163,6 +163,7 @@
 	</build>
 	<modules>
 		<module>cnbicloud-api</module>
+		<module>cnbicloud-core</module>
 		<module>cnbicloud-service</module>
 		<module>cnbicloud-security</module>
 		<module>cnbicloud-server</module>
@@ -174,3 +175,4 @@
 		<module>cnbicloud-apps</module>
 	</modules>
 </project>
+

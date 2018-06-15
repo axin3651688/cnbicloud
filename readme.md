@@ -43,19 +43,19 @@
 ## 总共分10大库
 ### 核心:sys，
 
-       用户表   sys_users
-       用户组   sys_groups
-       牌照     sys_licenses
+       用户表   sys_user
+       用户组   sys_group
+       牌照     sys_license
                 个人客户：按用户授权     1
-                企业客户:角色授权        2 
+                企业客户: 角色授权        2 
                           企业单帐套（无子公司的）
                           企业多帐套（有子公司的）
                 混合客户:用户角色双授权  3
-       公司     sys_companys
-       部门     sys_depts
-       角色     sys_roles
-       系统模块 sys_sources
-       数据字典 sys_dicts
+       公司     sys_company
+       部门     sys_dept
+       角色     sys_role
+       系统模块 sys_source
+       数据字典 sys_dict
 
 个性 ：per[personality]
 
@@ -77,9 +77,9 @@
     角色系统模块授权
     角色客户模块授权
     主要表有：
-    auth_user_role   [用户角色权限]
+    auth_user_role   [user_id,role_id]
     auth_user_token  [id,token,user_id,type(授权的应用)]
-    auth_user_depts  [id,user_id,dept_id]
+    auth_user_depts  [id,user_id,dept_id,company_id]
 
     auth_user_group  [id,group_id,user_id,join_time]
     auth_user_group_action[id,ug_id,action(动作类型)]
@@ -87,18 +87,18 @@
 
 按用户授权
 
-    auth_user_sys_sources[id,source_id,user_id,type(系统模块)] 
-    auth_user_m_sources[id,source_id,user_id,type(客户模块)]
-    auth_user_sys_sources_action[系统模块的动作接口权限]
-    auth_user_m_sources_action[客户模块的动作接口权限]
+    auth_user_sys_source[id,source_id,user_id,type(系统模块)] 
+    auth_user_m_source[id,source_id,user_id,type(客户模块)]
+    auth_user_sys_source_action[系统模块的动作接口权限]
+    auth_user_m_source_action[客户模块的动作接口权限]
    
 
 按角色授权
 
-    auth_role_sys_sources[id,source_id,role_id,type(系统模块)] 
-    auth_role_m_sources[id,source_id,role_id,type(客户模块)]
-    auth_role_sys_sources_action[系统模块的动作接口权限]
-    auth_role_m_sources_action[客户模块的动作接口权限]
+    auth_role_sys_source[id,source_id,role_id,type(系统模块)] 
+    auth_role_m_source[id,source_id,role_id,type(客户模块)]
+    auth_role_sys_source_action[系统模块的动作接口权限]
+    auth_role_m_source_action[客户模块的动作接口权限]
 
 ### 消息：msg
 
@@ -121,7 +121,7 @@
     上传：upload
     下载：download
     导出：export
-    导入：export
+    导入：import
  
 
 ## 高可用性(High Availability),简称HA：

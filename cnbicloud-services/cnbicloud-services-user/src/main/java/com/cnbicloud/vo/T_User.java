@@ -15,7 +15,7 @@ import javax.persistence.Table;
 *
  */
 @Table
-@Entity(name = "sys_users")
+@Entity(name = "core_users")
 public class T_User extends com.cnbicloud.api.core.T_User{
 
 	/**  

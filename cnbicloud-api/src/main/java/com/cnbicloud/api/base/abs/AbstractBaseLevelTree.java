@@ -26,14 +26,12 @@ public class AbstractBaseLevelTree extends AbstractBase {
 		this.text = text;
 	}
 
-	public String getSpcode() {
-		return spcode;
-	}
-
 	public void setSpcode(String spcode) {
 		this.spcode = spcode;
 	}
 	
-   
+	public String getSpcode() {
+		return spcode;
+	}
 
 }
