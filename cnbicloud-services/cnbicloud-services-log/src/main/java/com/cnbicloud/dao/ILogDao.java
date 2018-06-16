@@ -1,6 +1,7 @@
 package com.cnbicloud.dao;
 
-<<<<<<< HEAD
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 
 import com.cnbicloud.vo.log.Log_Login;;
@@ -24,14 +25,6 @@ public interface ILogDao extends CnbiJpaRepository<Log_Login,Long> {
 	* @return Page<Log_Login>    返回类型  
 	* @throws
 	 */
-	public Page<Log_Login> findPageByCreateUser(Long userId);
-=======
-import org.springframework.stereotype.Repository;
-
-import com.cnbicloud.vo.log.Log_Login;
-
-@Repository
-public interface ILogDao extends CnbiJpaRepository<Log_Login, Long>{
->>>>>>> 5f81cd2c375f471467406c8b3db230d023c0fb33
+	public List<Log_Login> findByCreateUser(Long userId);
 
 }

@@ -20,13 +20,19 @@ import org.junit.runner.RunWith;
 @SpringBootTest(classes = LogApplication.class)
 public class SpringbootJdbcDemoApplicationTests {
 	@Autowired
-	private ILogDao userRepository;
+	private ILogDao dao;
 
 	@org.junit.Test
-	public void findAllUsers() {
-		List<Log_Login> users = userRepository.findAll();
-		Assert.assertNotNull(users);
-		Assert.assertTrue(!users.isEmpty());
+	public void findLogs() {
+		List<Log_Login> logs = dao.findAll();
+		Assert.assertNotNull(logs);
+		Assert.assertTrue(!logs.isEmpty());
+	}
+	
+	@Test
+	public void findLogsByCreateUser() {
+		List<Log_Login> logs = dao.findByCreateUser(1l);
+		Assert.assertNotNull(logs);
 	}
 
 }

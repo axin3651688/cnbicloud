@@ -1,5 +1,7 @@
 package com.cnbicloud.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,10 +37,11 @@ public class LoginLogRestController {
 		return null;
 	}
 	
-	@GetMapping("/loginLog/queryPage")
-	public MsgBean queryPage(@RequestParam("userId")Long userId) {
-		Page<Log_Login> page = logService.findPageByCreateUser(userId);
-		return new MsgBean();
+	@GetMapping("/loginLog")
+	public Object queryPage(@RequestParam("userId")Long userId) {
+		List<Log_Login> logs = logService.findByCreateUser(userId);
+		return logs;
+	
 	}
 
 }

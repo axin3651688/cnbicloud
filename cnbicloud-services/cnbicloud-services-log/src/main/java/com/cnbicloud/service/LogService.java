@@ -1,5 +1,7 @@
 package com.cnbicloud.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +13,12 @@ public class LogService {
 	
 	private ILogDao logDao;
 	
-	public Page<Log_Login> findPageByCreateUser(Long userId){
-		return logDao.findPageByCreateUser(userId);
-		
+	public List<Log_Login> findAll(){
+		return logDao.findAll();
+	}
+	
+	public List<Log_Login> findByCreateUser(Long userId){
+		return logDao.findByCreateUser(userId);
 	}
 
 }
