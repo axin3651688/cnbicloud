@@ -23,7 +23,18 @@ public class MsgBean implements Serializable{
 	
 	private Object datas;
 	
-	
+	public MsgBean(Object datas) {
+		super();
+		this.code = 200;
+		this.msg = "执行成功！";
+		this.datas = datas;
+	}
+	public MsgBean(int code, String msg, Object datas) {
+		super();
+		this.code = code;
+		this.msg = msg;
+		this.datas = datas;
+	}
 
 	public int getCode() {
 		return code;

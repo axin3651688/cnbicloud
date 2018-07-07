@@ -1,21 +1,21 @@
 ## 经邦云平台互联网微服务架构所包含的模块有：
 	+ cnbicloud
-       - cnbicloud-server                 注册中心服务(高可用HA集群)
-       - cnbicloud-config                 配制中心服务(高可用HA集群)
+     - cnbicloud-server                 注册中心服务(高可用HA集群)
+     - cnbicloud-config                 配制中心服务(高可用HA集群)
 	   - cnbicloud-api                    公共api服务-------
 	   - cnbicloud-service                公共服务-------
-       - cnbicloud-fastdfs                分布式文件系统服务(负载均衡集群)
+     - cnbicloud-fastdfs                分布式文件系统服务(负载均衡集群)
 	   - cnbicloud-security               安全认证服务(高可用HA集群)
-       - cnbicloud-zuul-gateway           路由网关代理服务(高可用HA集群) 
-       - cnbicloud-websocket              Web端消息服务
-       - cnbicloud-socket                 客户端消息服务（单聊，群聊，应用）
+     - cnbicloud-zuul-gateway           路由网关代理服务(高可用HA集群) 
+     - cnbicloud-websocket              Web端消息服务
+     - cnbicloud-socket                 客户端消息服务（单聊，群聊，应用）
 	   + cnbicloud-services               业务中心服务模块(负载均衡集群)
 	      - cnbicloud-services-license       牌照（个人，企业。【开源，商业】）
-          - cnbicloud-services-datadict      数据字典
+        - cnbicloud-services-datadict      数据字典
 	      - cnbicloud-services-company       公司
 	      - cnbicloud-services-dept          部门
 	      - cnbicloud-services-user          用户
-          - cnbicloud-services-auth          授权（公司，部门，角色，应用）
+        - cnbicloud-services-auth          授权（公司，部门，角色，应用）
 	      - cnbicloud-services-online        在线(用户,设备，企业等)
 	      - cnbicloud-services-log           日志(按操作功能)
 	      - cnbicloud-services-role          角色 
@@ -75,7 +75,7 @@
     有无接口调用权限
     提供我的权限接口：用户权限+我的角色权限
     角色系统模块授权
-    角色客户模块授权
+    角色客户（第三方）模块授权
     主要表有：
     auth_user_role   [user_id,role_id]
     auth_user_token  [id,token,user_id,type(授权的应用)]
@@ -114,6 +114,7 @@
 
     按功能分表，在线用户为login表状态为online的用户，如果数据巨增的情
     况下，再不影响页面调用的情况下，再实现分库
+    登录：login(online,outline)
     查看：select
     修改：update
     新增：insert

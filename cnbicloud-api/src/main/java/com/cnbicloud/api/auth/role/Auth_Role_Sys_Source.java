@@ -1,7 +1,14 @@
 package com.cnbicloud.api.auth.role;
 
 import java.io.Serializable;
-
+/**
+ * 
+* @ClassName: Auth_Role_Sys_Source  
+* @Description: TODO(角色系统资源)  
+* @author 龚佳新 
+* @date 2018年6月21日  
+*
+ */
 public class Auth_Role_Sys_Source implements Serializable {
 
 	/**

@@ -6,8 +6,8 @@ package com.cnbicloud.api.base.abs;
 * @ClassName: com.cnbicloud.vo.base.CommonBean  
 * @Description: TODO(这里用一句话描述这个类的作用)  
 * @author 龚佳新 
-* @date 2017年11月29日  
-*   {id,enabled,avatar,code,text}
+* @date 2017年11月29日   {id,enabled,avatar,code,text}
+*   
  */
 public abstract class AbstractBase extends AbsBean {
 

@@ -1,26 +1,14 @@
 package com.cnbicloud.config;
-
-import java.util.List;
 import java.util.Map.Entry;
-
 import javax.annotation.Resource;
-
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configurers.provisioning.InMemoryUserDetailsManagerConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
-
 import com.cnbicloud.tools.CnbiConstants;
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -59,13 +47,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		});*/
 	}
     /**
-     * 定义哪些URL需要被保护、哪些不需要被保护
+     * 瀹氫箟鍝簺URL闇�瑕佽淇濇姢銆佸摢浜涗笉闇�瑕佽淇濇姢
      */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		// 表示所有的访问都必须进行认证处理后才可以正常进行
+		// 琛ㄧず鎵�鏈夌殑璁块棶閮藉繀椤昏繘琛岃璇佸鐞嗗悗鎵嶅彲浠ユ甯歌繘琛�
 		http.httpBasic().and().authorizeRequests().anyRequest().fullyAuthenticated().and().csrf().disable();
-		// 所有的Rest服务一定要设置为无状态，以提升操作性能
+		// 鎵�鏈夌殑Rest鏈嶅姟涓�瀹氳璁剧疆涓烘棤鐘舵�侊紝浠ユ彁鍗囨搷浣滄�ц兘
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
 }

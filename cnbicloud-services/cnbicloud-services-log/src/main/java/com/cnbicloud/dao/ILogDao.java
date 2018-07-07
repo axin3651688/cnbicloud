@@ -2,9 +2,7 @@ package com.cnbicloud.dao;
 
 import java.util.List;
 
-import org.springframework.data.domain.Page;
-
-import com.cnbicloud.vo.log.Log_Login;;
+import com.cnbicloud.vo.log.Log_Login;
 
 /**
  * 
@@ -18,7 +16,7 @@ public interface ILogDao extends CnbiJpaRepository<Log_Login,Long> {
 	
 	/**
 	 * 查询用户的登录记录
-	* @Title: findPageByCreateUser  
+	* @Title: findByCreateUser  
 	* @Description: TODO(这里用一句话描述这个方法的作用)  
 	* @param @param userId
 	* @param @return    参数  
