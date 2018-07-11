@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cnbicloud.dao.ILogDao;
-import com.cnbicloud.vo.log.Log_Login;
+import com.cnbicloud.vo.Log_Login;
 /**
  * 
 * @ClassName: LogService  

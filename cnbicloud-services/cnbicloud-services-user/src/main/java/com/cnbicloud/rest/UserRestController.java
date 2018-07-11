@@ -9,7 +9,7 @@ import com.cnbicloud.config.SecurityUtils;
 import com.cnbicloud.service.IUserService;
 import com.cnbicloud.vo.T_User;
 /**
-* @ClassName: RestController  
+* @ClassName: UserRestController  
 * @Description: TODO(用户Rest服务)  
 * @author 龚佳新 
 * @date 2017年12月18日  

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 /**
  * 
 * @ClassName: T_User  
-* @Description: TODO(这里用一句话描述这个类的作用)  
+* @Description: TODO(用户)  
 * @author 龚佳新 
 * @date 2018年3月23日  
 *

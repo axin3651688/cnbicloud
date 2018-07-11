@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cnbicloud.bean.MsgBean;
 import com.cnbicloud.service.LogService;
-import com.cnbicloud.vo.log.Log_Login;
+import com.cnbicloud.vo.Log_Login;
 /**
  * 
 * @ClassName: LoginLogRestController  

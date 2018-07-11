@@ -1,4 +1,5 @@
 package com.cnbicloud.vo;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 /**
@@ -20,16 +21,16 @@ public class T_Source extends com.cnbicloud.api.core.T_Source {
 	
 	
 	
-	
+	@Column(nullable = false,length=1)
 	public Short getLeaf() {
 		return leaf;
 	}
-	
+	@Column(nullable = false,length=1)
 	public Short getLev() {
 		return lev;
 	}
 	
-
+	@Column(nullable = false,length=255)
 	public String getDes() {
 		return des;
 	}

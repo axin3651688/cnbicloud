@@ -1,4 +1,4 @@
-package com.cnbicloud.vo.log;
+package com.cnbicloud.vo;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;

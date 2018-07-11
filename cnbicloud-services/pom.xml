@@ -47,7 +47,7 @@
 	</build>
 	<modules>
 		<module>cnbicloud-services-dept</module>
-		<module>cnbicloud-services-company</module>
+		<module>cnbicloud-services-organization</module>
 		<module>cnbicloud-services-user</module>
 		<module>cnbicloud-services-auth</module>
 		<module>cnbicloud-services-log</module>

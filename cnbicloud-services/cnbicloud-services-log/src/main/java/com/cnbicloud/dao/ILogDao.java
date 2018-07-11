@@ -2,7 +2,7 @@ package com.cnbicloud.dao;
 
 import java.util.List;
 
-import com.cnbicloud.vo.log.Log_Login;
+import com.cnbicloud.vo.Log_Login;
 
 /**
  * 

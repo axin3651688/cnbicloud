@@ -1,6 +1,8 @@
-package com.cnbicloud.vo.log;
+package com.cnbicloud.vo;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import com.cnbicloud.vo.base.LogBean;
 /**
  * 
  * @ClassName: T_selectLog
@@ -11,4 +13,4 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "log_select")
-public class Log_Select extends com.cnbicloud.vo.log.LogBean {private static final long serialVersionUID = 1L;}
+public class Log_Select extends com.cnbicloud.vo.base.LogBean {private static final long serialVersionUID = 1L;}
